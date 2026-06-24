@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Me contacter"
+  },
+  "hero": {
+    "badge": "👋 Disponible pour des missions",
+    "greeting": "Bonjour, je suis",
+    "title": "Développeur",
+    "titleAccent": "Fullstack",
+    "description": "Je crée des applications web modernes, performantes et accessibles. Passionné par le code propre et les interfaces élégantes.",
+    "cta_primary": "Voir mes projets",
+    "cta_secondary": "Télécharger CV"
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Qui suis-je ?",
+    "bio1": "Développeur web fullstack passionné avec plusieurs années d'expérience dans la création d'applications web modernes.",
+    "bio2": "J'aime transformer des idées complexes en expériences digitales simples et élégantes.",
+    "location": "Localisation",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "coffee": "Cafés ☕",
+    "cta": "Télécharger CV"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Mes technologies",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Outils"
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Mes réalisations",
+    "all": "Tous",
+    "frontend": "Frontend",
+    "fullstack": "Fullstack",
+    "design": "Design",
+    "view": "Voir le projet",
+    "code": "Voir le code"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Ce que je propose"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Ce qu'ils disent"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Mes articles",
+    "read_more": "Lire la suite"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Travaillons ensemble",
+    "description": "Un projet en tête ? Une question ? N'hésitez pas à me contacter.",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Réessayez.",
+    "location": "Localisation",
+    "follow": "Me suivre"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "tagline": "Développeur Web Fullstack"
+  }
+}
