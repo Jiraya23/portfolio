@@ -20,7 +20,7 @@ function Card({
       data-padding={padding}
       data-interactive={interactive}
       className={cn(
-        "group/card flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-[rgba(30,30,46,0.7)] text-slate-100 shadow-(--shadow-card) backdrop-blur-xl transition-all duration-300 has-[>img:first-child]:pt-0 data-[size=sm]:rounded-2xl data-[padding=none]:p-0 data-[padding=sm]:p-4 data-[padding=md]:p-6 data-[padding=lg]:p-8 data-[interactive=true]:hover:-translate-y-1 data-[interactive=true]:hover:border-[var(--color-accent-500)]/40 data-[interactive=true]:hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] *:[img:first-child]:rounded-t-3xl *:[img:last-child]:rounded-b-3xl data-[size=sm]:*:[img:first-child]:rounded-t-2xl data-[size=sm]:*:[img:last-child]:rounded-b-2xl",
+        "group/card flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-[rgba(30,30,46,0.7)] text-slate-100 shadow-(--shadow-card) backdrop-blur-xl transition-all duration-300 has-[>img:first-child]:pt-0 data-[size=sm]:rounded-2xl data-[padding=none]:p-0 data-[padding=sm]:p-4 data-[padding=md]:p-6 data-[padding=lg]:p-8 data-[interactive=true]:hover:-translate-y-1 data-[interactive=true]:hover:border-accent-500/40 data-[interactive=true]:hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] *:[img:first-child]:rounded-t-3xl *:[img:last-child]:rounded-b-3xl data-[size=sm]:*:[img:first-child]:rounded-t-2xl data-[size=sm]:*:[img:last-child]:rounded-b-2xl",
         className
       )}
       {...props}
