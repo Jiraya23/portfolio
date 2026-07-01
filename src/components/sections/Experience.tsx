@@ -33,7 +33,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-500 to-accent-900 rounded-full" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-accent-500 to-accent-900 rounded-full" />
 
           {/* Timeline Items */}
           <div className="space-y-16">
@@ -73,7 +73,7 @@ export default function Experience() {
                     <ul className="space-y-2 mb-4">
                       {exp.description.map((point, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-400 text-sm">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0" />
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-500 shrink-0" />
                           {point}
                         </li>
                       ))}

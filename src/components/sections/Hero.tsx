@@ -10,13 +10,10 @@ import {
   Sparkles,
   Code2,
   Layout,
-  Database,
   DatabaseZap,
-  Palette,
   Code,
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
-import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
 // Tech badges data with positions (degrees)
@@ -52,8 +49,8 @@ export default function Hero() {
     >
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-200 bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-0 right-0 w-150 h-150 bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
       </div>
 
       <div className="container mx-auto px-6">
@@ -78,7 +75,7 @@ export default function Hero() {
             {/* Main title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {t('greeting')}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
                 Myli
               </span>
             </h1>
@@ -86,7 +83,7 @@ export default function Hero() {
             {/* Subtitle */}
             <h2 className="text-xl md:text-2xl text-gray-300 mb-4">
               {t('title')}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
                 {t('titleAccent')}
               </span>
             </h2>
@@ -189,7 +186,7 @@ export default function Hero() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]"
+                className="relative w-100 h-100 md:w-125 md:h-125 lg:w-137.5 lg:h-137.5"
               >
                 {/* Dotted rotating circle */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-500/30" />
@@ -211,12 +208,14 @@ export default function Hero() {
                     >
                       {/* Counter-rotate to keep badges upright */}
                       <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                        animate={{ rotate: -360, opacity: 1, scale: 1 }}
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.8, duration: 0.5 }}
+                        transition={{
+                          rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
+                          default: { delay: 0.8, duration: 0.5 }
+                        }}
                       >
                         <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-4 py-2 shadow-lg">
                           <tech.icon className="w-4 h-4 text-accent-400" />
@@ -236,7 +235,7 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-accent-500/30 rounded-full blur-[60px] -z-10" />
                     
                     {/* Circular Image */}
-                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-accent-500/50 shadow-[0_0_60px_rgba(139,92,246,0.4)]">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-accent-500/50 shadow-violet-lg">
                       <Image
                         src="https://coresg-normal.trae.ai/api/ide/v1/text-to-image?prompt=a%20beautiful%203D%20purple%20crystal%20abstract%20shape%2C%20glowing%20neon%20purple%20lines%2C%20dark%20background%2C%208k%20render&image_size=square_hd"
                         alt="Myli"
