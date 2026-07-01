@@ -12,7 +12,7 @@
     "cta": "Contact me"
   },
   "hero": {
-    "badge": "👋 Available for missions",
+    "badge": "Available for missions",
     "greeting": "Hello, I am",
     "title": "Fullstack",
     "titleAccent": "Developer",
@@ -28,7 +28,7 @@
     "location": "Location",
     "experience": "Experience",
     "projects": "Projects",
-    "coffee": "Coffees ☕",
+    "coffee": "Coffees",
     "cta": "Download CV"
   },
   "skills": {
