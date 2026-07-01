@@ -10,10 +10,22 @@ import {
   Sparkles,
   Code2,
   Layout,
-  Database
+  Database,
+  DatabaseZap,
+  Palette,
+  Code,
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
+
+// Tech badges data with positions (degrees)
+const techBadges = [
+  { name: 'React', icon: Code, position: 0 },
+  { name: 'TypeScript', icon: Code2, position: 90 },
+  { name: 'Node.js', icon: DatabaseZap, position: 180 },
+  { name: 'Next.js', icon: Layout, position: 270 },
+]
 
 export default function Hero() {
   const t = useTranslations('hero')
@@ -33,12 +45,6 @@ export default function Hero() {
     { label: tNav('testimonials'), value: '15+' }
   ]
 
-  const floatingTechs = [
-    { icon: Code2, label: 'React', delay: 0.2 },
-    { icon: Layout, label: 'Next.js', delay: 0.4 },
-    { icon: Database, label: 'Node.js', delay: 0.6 }
-  ]
-
   return (
     <section
       id="hero"
@@ -46,8 +52,8 @@ export default function Hero() {
     >
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-200 bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute bottom-0 right-0 w-150 h-150 bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
       </div>
 
       <div className="container mx-auto px-6">
@@ -72,7 +78,7 @@ export default function Hero() {
             {/* Main title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {t('greeting')}{' '}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">
                 Myli
               </span>
             </h1>
@@ -80,7 +86,7 @@ export default function Hero() {
             {/* Subtitle */}
             <h2 className="text-xl md:text-2xl text-gray-300 mb-4">
               {t('title')}{' '}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">
                 {t('titleAccent')}
               </span>
             </h2>
@@ -178,45 +184,72 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* Main profile visual */}
-            <div className="relative z-10">
-              <div className="relative w-full max-w-md mx-auto aspect-square rounded-3xl overflow-hidden border border-gray-700 bg-gray-800/50 backdrop-blur-sm">
-                {/* Placeholder for avatar/image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-linear-to-br from-accent-500 to-accent-600 flex items-center justify-center mb-4">
-                      <span className="text-4xl font-bold text-white">M</span>
+            <div className="relative z-10 flex justify-center">
+              {/* Rotating container with circle and badges */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]"
+              >
+                {/* Dotted rotating circle */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-500/30" />
+
+                {/* Tech badges positioned absolutely around the circle */}
+                {techBadges.map((tech) => {
+                  const angle = (tech.position * Math.PI) / 180
+                  const radius = 210 // Adjust this for circle size
+                  const x = Math.cos(angle) * radius
+                  const y = Math.sin(angle) * radius
+
+                  return (
+                    <div
+                      key={tech.name}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                      style={{
+                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                      }}
+                    >
+                      {/* Counter-rotate to keep badges upright */}
+                      <motion.div
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                      >
+                        <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-4 py-2 shadow-lg">
+                          <tech.icon className="w-4 h-4 text-accent-400" />
+                          <span className="text-sm font-medium text-white">
+                            {tech.name}
+                          </span>
+                        </div>
+                      </motion.div>
                     </div>
-                    <p className="text-gray-400">Profile Placeholder</p>
+                  )
+                })}
+
+                {/* Main circular image in the center (not rotating) */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(-50%, -50%) rotate(0deg)' }}>
+                  <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
+                    {/* Glow effect behind the circle */}
+                    <div className="absolute inset-0 bg-accent-500/30 rounded-full blur-[60px] -z-10" />
+                    
+                    {/* Circular Image */}
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-accent-500/50 shadow-[0_0_60px_rgba(139,92,246,0.4)]">
+                      <Image
+                        src="https://coresg-normal.trae.ai/api/ide/v1/text-to-image?prompt=a%20beautiful%203D%20purple%20crystal%20abstract%20shape%2C%20glowing%20neon%20purple%20lines%2C%20dark%20background%2C%208k%20render&image_size=square_hd"
+                        alt="Myli"
+                        fill
+                        className="object-cover"
+                        priority
+                        unoptimized
+                      />
+                    </div>
                   </div>
                 </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-linear-to-tr from-accent-500/20 to-transparent" />
-              </div>
+              </motion.div>
             </div>
-
-            {/* Floating tech badges */}
-            {floatingTechs.map((tech, idx) => (
-                <motion.div
-                  key={tech.label}
-                  initial={{ opacity: 0, x: 20, y: 20 }}
-                  animate={{ opacity: isVisible ? 1 : 0, x: 0, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 + tech.delay }}
-                  className={cn(
-                    "absolute z-20",
-                    idx === 0 && "top-8 right-0",
-                    idx === 1 && "top-1/3 -left-4",
-                    idx === 2 && "bottom-12 -right-8"
-                  )}
-                >
-                  <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-4 py-3 shadow-lg">
-                    <tech.icon className="w-5 h-5 text-accent-400" />
-                    <span className="text-sm font-medium text-white">
-                      {tech.label}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
           </motion.div>
         </div>
       </div>
