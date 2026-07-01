@@ -128,10 +128,10 @@ export default function Navbar() {
       <nav className="container-main flex h-20 items-center justify-between gap-4">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-2 font-[var(--font-grotesk)] text-xl tracking-tight text-white transition hover:text-[var(--color-accent-300)]"
+          className="flex items-center gap-2 font-(--font-grotesk) text-xl tracking-tight text-white transition hover:text-accent-300"
         >
           <span>Myli</span>
-          <span className="size-2 rounded-full bg-[var(--color-accent-500)] shadow-[0_0_12px_rgba(139,92,246,0.7)]" />
+          <span className="size-2 rounded-full bg-accent-500 shadow-[0_0_12px_rgba(139,92,246,0.7)]" />
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
@@ -145,7 +145,7 @@ export default function Navbar() {
                 href={sectionHref(item.href)}
                 className={cn(
                   "text-sm font-medium text-slate-400 transition hover:text-white",
-                  isActive && "text-[var(--color-accent-300)]"
+                  isActive && "text-accent-300"
                 )}
               >
                 {t(item.key)}
