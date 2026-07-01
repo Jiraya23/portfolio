@@ -34,7 +34,7 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={locale} className="dark scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           {children}
