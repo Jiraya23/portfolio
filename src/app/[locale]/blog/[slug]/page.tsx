@@ -95,7 +95,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ locale: str
               </div>
             </div>
             <Link
-              href={`/${locale}/blog`}
+              href={`/${locale}`}
               className="inline-flex w-full items-center justify-center rounded-full border border-accent-500/30 bg-accent-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-accent-300 transition hover:bg-accent-500/20"
             >
               Retour au blog

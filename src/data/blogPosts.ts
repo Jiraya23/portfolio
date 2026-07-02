@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     date: '20 juin 2026',
     readTime: '5 min',
     tags: ['Next.js', 'Performance', 'SEO'],
-    image: '/images/projects/globe.svg',
+    image: '/globe.svg',
   },
   {
     slug: 'internationalisation-next-intl',
@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     date: '15 mai 2026',
     readTime: '6 min',
     tags: ['i18n', 'Next.js', 'SEO'],
-    image: '/images/projects/window.svg',
+    image: '/window.svg',
   },
   {
     slug: 'ui-design-system-tailwind',
@@ -26,6 +26,6 @@ export const blogPosts: BlogPost[] = [
     date: '8 avril 2026',
     readTime: '7 min',
     tags: ['Design System', 'Tailwind', 'UI'],
-    image: '/images/projects/file.svg',
+    image: '/file.svg',
   },
 ]

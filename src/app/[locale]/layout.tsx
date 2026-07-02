@@ -3,8 +3,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { inter, spaceGrotesk } from '@/lib/fonts'
-import '@/app/globals.css'
 
 export const metadata: Metadata = {
   title: {
@@ -34,12 +32,8 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className="dark scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      {children}
+    </NextIntlClientProvider>
   )
 }
