@@ -78,7 +78,13 @@
     "success": "Message sent successfully!",
     "error": "An error occurred. Please try again.",
     "location": "Location",
-    "follow": "Follow me"
+    "follow": "Follow me",
+    "errors": {
+      "name": "Please enter your full name.",
+      "email": "Please enter a valid email address.",
+      "subject": "Please provide a subject.",
+      "message": "Please enter a message with at least 10 characters."
+    }
   },
   "footer": {
     "rights": "All rights reserved",

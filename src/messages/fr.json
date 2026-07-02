@@ -78,7 +78,13 @@
     "success": "Message envoyé avec succès !",
     "error": "Une erreur est survenue. Réessayez.",
     "location": "Localisation",
-    "follow": "Me suivre"
+    "follow": "Me suivre",
+    "errors": {
+      "name": "Veuillez entrer votre nom complet.",
+      "email": "Veuillez entrer une adresse email valide.",
+      "subject": "Veuillez indiquer le sujet.",
+      "message": "Veuillez entrer un message d'au moins 10 caractères."
+    }
   },
   "footer": {
     "rights": "Tous droits réservés",
