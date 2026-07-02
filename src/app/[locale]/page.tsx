@@ -9,6 +9,8 @@ import Projects from '@/components/sections/Projects'
 import Services from '@/components/sections/Services'
 import Testimonials from '@/components/sections/Testimonials'
 import Blog from '@/components/sections/Blog'
+import Contact from '@/components/sections/Contact'
+import Footer from '@/components/layout/Footer'
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
       <Services />
       <Testimonials />
       <Blog />
+      <Contact />
+      <Footer />
     </>
   )
 }
