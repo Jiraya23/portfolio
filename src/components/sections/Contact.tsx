@@ -17,17 +17,17 @@ type ContactFormValues = {
   message: string
 }
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Please enter your name.'),
-  email: z.string().email('Please enter a valid email.'),
-  subject: z.string().min(2, 'Please enter a subject.'),
-  message: z.string().min(10, 'Please enter a message.'),
-})
-
 export default function Contact() {
   const t = useTranslations('contact')
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t('errors.name')),
+    email: z.string().email(t('errors.email')),
+    subject: z.string().min(2, t('errors.subject')),
+    message: z.string().min(10, t('errors.message')),
+  })
 
   const {
     register,
