@@ -1,29 +1,56 @@
-'use client'
-
-import { use } from 'react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import { blogPosts } from '@/data/blogPosts'
 
-export default function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { locale, slug } = use(params)
+export async function generateMetadata({ params }: { params: { locale: string; slug: string } }): Promise<Metadata> {
+  const post = blogPosts.find((item) => item.slug === params.slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  return {
+    title: `${post.title} | Myli`,
+    description: post.description,
+    openGraph: {
+      title: `${post.title} | Myli`,
+      description: post.description,
+      type: 'article',
+      locale: params.locale === 'fr' ? 'fr_FR' : 'en_US',
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | Myli`,
+      description: post.description,
+      images: [post.image],
+    },
+    alternates: {
+      canonical: `/${params.locale}/blog/${params.slug}`,
+      languages: {
+        fr: `/fr/blog/${params.slug}`,
+        en: `/en/blog/${params.slug}`,
+      },
+    },
+  }
+}
+
+export default function BlogPostPage({ params }: { params: { locale: string; slug: string } }) {
+  const { locale, slug } = params
   const post = blogPosts.find((item) => item.slug === slug)
 
   if (!post) {
-    return (
-      <main className="bg-dark-950 text-white py-24">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-xl font-semibold text-slate-300">Article introuvable</p>
-          <Link
-            href={`/${locale}/blog`}
-            className="mt-6 inline-flex rounded-full border border-accent-500/30 bg-accent-500/10 px-6 py-3 text-sm font-semibold text-accent-300 transition hover:bg-accent-500/20"
-          >
-            Retour au blog
-          </Link>
-        </div>
-      </main>
-    )
+    notFound()
   }
 
   return (
