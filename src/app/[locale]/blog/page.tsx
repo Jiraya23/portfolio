@@ -1,16 +1,50 @@
-'use client'
-
-import { use } from 'react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { blogPosts } from '@/data/blogPosts'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 
-export default function BlogListingPage({ params }: { params: Promise<{ locale: string }> }) {
-  const t = useTranslations('blog')
-  const { locale } = use(params)
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations('blog')
+
+  return {
+    title: `${t('title')} | Myli`,
+    description: t('subtitle'),
+    openGraph: {
+      title: `${t('title')} | Myli`,
+      description: t('subtitle'),
+      type: 'website',
+      locale: params.locale === 'fr' ? 'fr_FR' : 'en_US',
+      images: [
+        {
+          url: '/images/projects/nextjs-homepage-optimisation.jpg',
+          width: 1200,
+          height: 630,
+          alt: t('title'),
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${t('title')} | Myli`,
+      description: t('subtitle'),
+      images: ['/images/projects/nextjs-homepage-optimisation.jpg'],
+    },
+    alternates: {
+      canonical: `/${params.locale}/blog`,
+      languages: {
+        fr: '/fr/blog',
+        en: '/en/blog',
+      },
+    },
+  }
+}
+
+export default async function BlogListingPage({ params }: { params: { locale: string } }) {
+  const t = await getTranslations('blog')
+  const { locale } = params
 
   return (
     <main className="bg-dark-950 text-white py-24">
