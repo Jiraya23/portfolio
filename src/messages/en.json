@@ -79,6 +79,7 @@
     "error": "An error occurred. Please try again.",
     "location": "Location",
     "follow": "Follow me",
+    "available": "Available",
     "errors": {
       "name": "Please enter your full name.",
       "email": "Please enter a valid email address.",

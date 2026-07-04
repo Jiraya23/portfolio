@@ -79,6 +79,7 @@
     "error": "Une erreur est survenue. Réessayez.",
     "location": "Localisation",
     "follow": "Me suivre",
+    "available": "Disponible",
     "errors": {
       "name": "Veuillez entrer votre nom complet.",
       "email": "Veuillez entrer une adresse email valide.",

@@ -1,13 +1,7 @@
-import { Inter, Space_Grotesk } from 'next/font/google'
+// Use simple constants instead of next/font/google to avoid fetching during build
+// (useful in CI or offline environments). Define the CSS variable names expected
+// by the layout so the rest of the code can continue to reference them.
 
-export const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
+export const inter = { variable: '--font-inter' }
 
-export const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
+export const spaceGrotesk = { variable: '--font-space-grotesk' }
