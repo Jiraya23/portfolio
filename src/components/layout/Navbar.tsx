@@ -15,6 +15,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { useActiveSection } from "@/hooks/useActiveSection"
+import { useScrollProgress } from "@/hooks/useScrollProgress"
 import { cn } from "@/lib/utils"
 
 type NavItem = {
@@ -54,7 +56,8 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>("")
+  const activeSection = useActiveSection()
+  const scrollProgress = useScrollProgress()
 
   const isHomePage = pathname === `/${locale}`
 
@@ -77,40 +80,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  useEffect(() => {
-    if (!isHomePage) {
-      return
-    }
-
-    const sectionIds = navItems.map((item) => item.href.replace("#", ""))
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => Boolean(section))
-
-    if (!sections.length) {
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id)
-        }
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.2, 0.4, 0.6],
-      }
-    )
-
-    sections.forEach((section) => observer.observe(section))
-
-    return () => observer.disconnect()
-  }, [isHomePage])
 
   const sectionHref = (hash: string) => {
     return isHomePage ? hash : `/${locale}${hash}`
@@ -125,6 +94,12 @@ export default function Navbar() {
           : "border-transparent bg-transparent"
       )}
     >
+      <div className="h-1 w-full overflow-hidden bg-white/10">
+        <div
+          className="h-full bg-accent-400 transition-all duration-200"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
       <nav className="container-main flex h-20 items-center justify-between gap-4">
         <Link
           href={`/${locale}`}
