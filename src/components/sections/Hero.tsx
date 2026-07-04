@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import Image from 'next/image'
+import { useRef, useEffect, useState } from 'react'
 
 // Tech badges data with positions (degrees)
 const techBadges = [
@@ -42,6 +43,23 @@ export default function Hero() {
     { label: tNav('testimonials'), value: '15+' }
   ]
 
+  // Ref and state to compute a responsive radius for badge placement
+  const circleRef = useRef<HTMLDivElement | null>(null)
+  const [radius, setRadius] = useState(0)
+
+  useEffect(() => {
+    function updateRadius() {
+      if (!circleRef.current) return
+      const w = circleRef.current.clientWidth
+      // radius is 45% of container width
+      setRadius(Math.round(w * 0.45))
+    }
+
+    updateRadius()
+    window.addEventListener('resize', updateRadius)
+    return () => window.removeEventListener('resize', updateRadius)
+  }, [])
+
   return (
     <section
       id="hero"
@@ -49,8 +67,8 @@ export default function Hero() {
     >
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-200 bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute bottom-0 right-0 w-150 h-150 bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-96 md:h-96 bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute bottom-0 right-0 w-48 h-48 md:w-72 md:h-72 bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
       </div>
 
       <div className="container mx-auto px-6">
@@ -184,29 +202,29 @@ export default function Hero() {
             <div className="relative z-10 flex justify-center">
               {/* Rotating container with circle and badges */}
               <motion.div
+                ref={circleRef}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="relative w-100 h-100 md:w-125 md:h-125 lg:w-137.5 lg:h-137.5"
+                className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
               >
                 {/* Dotted rotating circle */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-500/30" />
 
-                {/* Tech badges positioned absolutely around the circle */}
+                {/* Tech badges positioned using CSS transforms and dynamic radius */}
                 {techBadges.map((tech) => {
-                  const angle = (tech.position * Math.PI) / 180
-                  const radius = 210 // Adjust this for circle size
-                  const x = Math.cos(angle) * radius
-                  const y = Math.sin(angle) * radius
+                  const angleDeg = tech.position
+
+                  // If radius is 0 (not measured yet), stack badges near center to avoid huge offsets
+                  const translateStyle = radius
+                    ? `translate(-50%, -50%) rotate(${angleDeg}deg) translate(${radius}px) rotate(-${angleDeg}deg)`
+                    : 'translate(-50%, -50%)'
 
                   return (
                     <div
                       key={tech.name}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                      style={{
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      }}
+                      className="absolute left-1/2 top-1/2"
+                      style={{ transform: translateStyle }}
                     >
-                      {/* Counter-rotate to keep badges upright */}
                       <motion.div
                         animate={{ rotate: -360, opacity: 1, scale: 1 }}
                         initial={{ opacity: 0, scale: 0 }}
@@ -217,9 +235,9 @@ export default function Hero() {
                           default: { delay: 0.8, duration: 0.5 }
                         }}
                       >
-                        <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-4 py-2 shadow-lg">
+                        <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-3 py-1 shadow-lg text-sm">
                           <tech.icon className="w-4 h-4 text-accent-400" />
-                          <span className="text-sm font-medium text-white">
+                          <span className="font-medium text-white">
                             {tech.name}
                           </span>
                         </div>
@@ -230,7 +248,7 @@ export default function Hero() {
 
                 {/* Main circular image in the center (not rotating) */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(-50%, -50%) rotate(0deg)' }}>
-                  <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
+                  <div className="relative w-36 h-36 md:w-56 md:h-56 lg:w-64 lg:h-64">
                     {/* Glow effect behind the circle */}
                     <div className="absolute inset-0 bg-accent-500/30 rounded-full blur-[60px] -z-10" />
                     

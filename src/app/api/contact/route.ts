@@ -20,7 +20,8 @@ export async function POST(request: NextRequest) {
   const parseResult = contactSchema.safeParse(body)
 
   if (!parseResult.success) {
-    return NextResponse.json({ error: parseResult.error.flatten().fieldErrors }, { status: 400 })
+    const firstError = parseResult.error.issues[0]?.message ?? 'Invalid input'
+    return NextResponse.json({ error: firstError }, { status: 400 })
   }
 
   const { name, email, subject, message } = parseResult.data
