@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: `${post.title} | Myli`,
       description: post.description,
       type: 'article',
-      locale: params.locale === 'fr' ? 'fr_FR' : 'en_US',
+      locale: resolvedParams.locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [
         {
           url: post.image,
@@ -37,10 +37,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       images: [post.image],
     },
     alternates: {
-      canonical: `/${params.locale}/blog/${params.slug}`,
+      canonical: `/${resolvedParams.locale}/blog/${resolvedParams.slug}`,
       languages: {
-        fr: `/fr/blog/${params.slug}`,
-        en: `/en/blog/${params.slug}`,
+        fr: `/fr/blog/${resolvedParams.slug}`,
+        en: `/en/blog/${resolvedParams.slug}`,
       },
     },
   }
