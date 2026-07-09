@@ -16,10 +16,11 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials'))
 const Blog = dynamic(() => import('@/components/sections/Blog'))
 const Contact = dynamic(() => import('@/components/sections/Contact'))
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const title = params.locale === 'fr' ? 'Accueil | Myli' : 'Home | Myli'
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const resolvedParams = await params
+  const title = resolvedParams.locale === 'fr' ? 'Accueil | Myli' : 'Home | Myli'
   const description =
-    params.locale === 'fr'
+    resolvedParams.locale === 'fr'
       ? 'Portfolio de Myli, développeur web fullstack. Spécialisé en React, Next.js, Node.js.'
       : 'Myli portfolio, fullstack web developer. Specializing in React, Next.js, Node.js.'
 
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       title,
       description,
       type: 'website',
-      locale: params.locale === 'fr' ? 'fr_FR' : 'en_US',
+      locale: resolvedParams.locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [
         {
           url: '/images/projects/nextjs-homepage-optimisation.jpg',
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       images: ['/images/projects/nextjs-homepage-optimisation.jpg'],
     },
     alternates: {
-      canonical: `/${params.locale}`,
+      canonical: `/${resolvedParams.locale}`,
       languages: {
         fr: '/fr',
         en: '/en',
