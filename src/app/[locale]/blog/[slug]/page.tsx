@@ -5,8 +5,9 @@ import { notFound } from 'next/navigation'
 
 import { blogPosts } from '@/data/blogPosts'
 
-export async function generateMetadata({ params }: { params: { locale: string; slug: string } }): Promise<Metadata> {
-  const post = blogPosts.find((item) => item.slug === params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params
+  const post = blogPosts.find((item) => item.slug === resolvedParams.slug)
 
   if (!post) {
     notFound()
@@ -45,8 +46,9 @@ export async function generateMetadata({ params }: { params: { locale: string; s
   }
 }
 
-export default function BlogPostPage({ params }: { params: { locale: string; slug: string } }) {
-  const { locale, slug } = params
+export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const resolvedParams = await params
+  const { locale, slug } = resolvedParams
   const post = blogPosts.find((item) => item.slug === slug)
 
   if (!post) {
@@ -64,8 +66,8 @@ export default function BlogPostPage({ params }: { params: { locale: string; slu
       '@type': 'Person',
       name: 'Myli',
     },
-    datePublished: new Date(post.date).toISOString() !== 'Invalid Date' 
-      ? new Date(post.date).toISOString() 
+    datePublished: !isNaN(new Date(post.date).getTime())
+      ? new Date(post.date).toISOString()
       : new Date().toISOString(),
   }
 
