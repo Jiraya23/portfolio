@@ -22,8 +22,8 @@ export async function sendEmail({
       console.warn('RESEND_API_KEY is not set. Email send skipped in development.')
 
       const mockResponse = {
-        id: 'dev-email-sent',
-        status: 'skipped',
+        data: { id: 'dev-email-sent' },
+        error: null,
       } as const
 
       return Promise.resolve(mockResponse)
