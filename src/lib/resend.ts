@@ -16,10 +16,13 @@ export async function sendEmail({
   if (!apiKey) {
     if (process.env.NODE_ENV !== 'production') {
       console.warn('RESEND_API_KEY is not set. Email send skipped in development.')
-      return Promise.resolve({
+
+      const mockResponse = {
         id: 'dev-email-sent',
         status: 'skipped',
-      } as any)
+      } as const
+
+      return Promise.resolve(mockResponse)
     }
 
     throw new Error('Missing RESEND_API_KEY environment variable')

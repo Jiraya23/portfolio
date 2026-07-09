@@ -23,7 +23,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-24"
+      className="relative py-24 bg-surface-container-low"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -75,7 +75,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-gray-700/50 bg-gray-800/40 backdrop-blur-sm hover:border-accent-500/50 transition-all duration-300">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-700/50 bg-gray-800/40 backdrop-blur-sm group-hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] group-hover:border-accent-500/40 group-hover:-translate-y-1 transition-all duration-300">
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-linear-to-tr from-accent-500/20 to-transparent z-10" />

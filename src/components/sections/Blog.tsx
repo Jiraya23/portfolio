@@ -12,7 +12,7 @@ export default function BlogSection() {
   const locale = useLocale()
 
   return (
-    <section id="blog" className="relative py-24 bg-dark-950">
+    <section id="blog" className="relative py-24">
       <div className="container mx-auto px-6">
         <SectionTitle
           label={t('title')}
@@ -25,7 +25,7 @@ export default function BlogSection() {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-gray-900/50 shadow-[0_20px_80px_rgba(0,0,0,0.35)] transition hover:-translate-y-2 hover:border-accent-500/50"
+              className="overflow-hidden rounded-3xl border border-white/10 bg-gray-900/50 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:-translate-y-2 hover:border-accent-500/40 transition-all duration-300"
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <Image

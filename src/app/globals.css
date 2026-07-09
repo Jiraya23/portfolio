@@ -27,6 +27,9 @@
   --color-dark-200: #16161e;
   --color-dark-300: #13131a;
   --color-dark-950: #0d0d14;
+  
+  --color-surface-container-low: #171c1f;
+  --color-surface-container-lowest: #0a0f12;
 
   /* ===== ANIMATIONS ===== */
   --animate-fade-in: fadeIn 0.5s ease-in-out;

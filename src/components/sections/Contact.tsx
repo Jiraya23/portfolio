@@ -6,9 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl'
 
-import { Button } from '@/components/ui/Button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { Mail, MapPin } from 'lucide-react'
 
 type ContactFormValues = {
   name: string
@@ -62,89 +60,102 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-section-gap px-gutter bg-surface-container-lowest">
-      <div className="max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-[0.95fr_1.05fr] gap-unit-xl items-start">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-primary">{t('title')}</p>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface">{t('subtitle')}</h2>
-              <div className="h-1 w-16 rounded-full bg-primary" />
+    <section id="contact" className="py-20 bg-[#171c1f]">
+      <div className="max-w-[1200px] mx-auto px-12">
+        <h2 className="text-[32px] md:text-[40px] font-bold mb-20 relative text-[#dfe3e7] after:content-[''] after:block after:w-[60px] after:h-1 after:bg-[#8b5cf6] after:mt-3 after:rounded-sm">
+          {t('subtitle') || 'Parlons de votre projet'}
+        </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="space-y-12">
+            <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
+                <Mail className="text-[#8b5cf6] w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-[#cbc3d7] text-sm tracking-wide font-medium mb-1">Email</div>
+                <div className="font-bold text-[#dfe3e7]">contact@prenom.dev</div>
+              </div>
             </div>
-
-            <p className="max-w-xl text-body-lg text-on-surface-variant">{t('description')}</p>
-
-            <div className="space-y-4">
-              <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-                <div className="flex items-center gap-4">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <span className="material-symbols-outlined">mail</span>
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-on-surface-variant">Email</p>
-                    <p className="mt-2 text-sm font-semibold text-on-surface">contact@prenom.dev</p>
-                  </div>
+            
+            <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
+                <MapPin className="text-[#8b5cf6] w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-[#cbc3d7] text-sm tracking-wide font-medium mb-1">
+                  {t('location') || 'Localisation'}
                 </div>
+                <div className="font-bold text-[#dfe3e7]">Paris, France</div>
               </div>
-
-              <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-                <div className="flex items-center gap-4">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <span className="material-symbols-outlined">location_on</span>
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-on-surface-variant">{t('location')}</p>
-                    <p className="mt-2 text-sm font-semibold text-on-surface">Paris, France</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-sm text-primary shadow-[0_0_40px_rgba(139,92,246,0.16)]">
-                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                <span>{t('available')}</span>
-              </div>
+            </div>
+            
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#8b5cf6]/10 text-[#8b5cf6] border border-[#8b5cf6]/20 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
+              {t('available') || 'Disponible immédiatement pour vos projets'}
             </div>
           </div>
-
-          <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl">
+          
+          <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 md:p-12 rounded-xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+            <div className="absolute -z-10 -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/20 blur-[60px] rounded-full"></div>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label className="space-y-2 block">
-                  <span className="text-sm font-label-caps text-on-surface-variant uppercase">{t('name')}</span>
-                  <Input {...register('name')} placeholder={t('name')} />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </label>
-
-                <label className="space-y-2 block">
-                  <span className="text-sm font-label-caps text-on-surface-variant uppercase">{t('email')}</span>
-                  <Input {...register('email')} placeholder={t('email')} type="email" />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-1">
+                  <label className="text-sm font-medium text-[#cbc3d7]">{t('name') || 'Nom complet'}</label>
+                  <input
+                    {...register('name')}
+                    className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                    placeholder="John Doe"
+                    type="text"
+                  />
+                  {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-medium text-[#cbc3d7]">{t('email') || 'Email'}</label>
+                  <input
+                    {...register('email')}
+                    className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                    placeholder="john@example.com"
+                    type="email"
+                  />
+                  {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+                </div>
               </div>
-
-              <label className="space-y-2 block">
-                <span className="text-sm font-label-caps text-on-surface-variant uppercase">{t('subject')}</span>
-                <Input {...register('subject')} placeholder={t('subject')} />
-                {errors.subject && <p className="text-sm text-destructive">{errors.subject.message}</p>}
-              </label>
-
-              <label className="space-y-2 block">
-                <span className="text-sm font-label-caps text-on-surface-variant uppercase">{t('message')}</span>
-                <Textarea {...register('message')} placeholder={t('message')} rows={6} />
-                {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
-              </label>
-
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-[#cbc3d7]">{t('subject') || 'Sujet'}</label>
+                <input
+                  {...register('subject')}
+                  className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                  placeholder="Collaboration / Freelance / Question"
+                  type="text"
+                />
+                {errors.subject && <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>}
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-[#cbc3d7]">{t('message') || 'Message'}</label>
+                <textarea
+                  {...register('message')}
+                  className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                  placeholder="Votre message..."
+                  rows={4}
+                ></textarea>
+                {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
+              </div>
+              
               {status === 'success' && (
-                <p className="rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-200">{t('success')}</p>
+                <p className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-200">{t('success')}</p>
               )}
 
               {status === 'error' && errorMessage && (
-                <p className="rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-200">{errorMessage}</p>
+                <p className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-200">{errorMessage}</p>
               )}
 
-              <Button type="submit" className="w-full rounded-2xl py-4 text-sm font-semibold">
+              <button
+                className="w-full bg-[#8b5cf6] text-white py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all flex justify-center items-center mt-6 disabled:opacity-70"
+                type="submit"
+                disabled={status === 'sending'}
+              >
                 {status === 'sending' ? t('sending') : t('send')}
-              </Button>
+              </button>
             </form>
           </div>
         </div>
