@@ -149,7 +149,7 @@ export default function BlogPostPage({ params }: { params: { locale: string; slu
             </Link>
           </aside>
         </div>
-      </div>
+      </article>
     </main>
   )
 }
