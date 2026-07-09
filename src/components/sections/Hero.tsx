@@ -15,16 +15,6 @@ import {
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import Image from 'next/image'
-import { useRef, useEffect, useState } from 'react'
-
-// Tech badges data with positions (degrees)
-const techBadges = [
-  { name: 'React', icon: Code, position: 0 },
-  { name: 'TypeScript', icon: Code2, position: 90 },
-  { name: 'Node.js', icon: DatabaseZap, position: 180 },
-  { name: 'Next.js', icon: Layout, position: 270 },
-]
-
 export default function Hero() {
   const t = useTranslations('hero')
   const tNav = useTranslations('nav')
@@ -37,37 +27,37 @@ export default function Hero() {
     { icon: Mail, href: 'mailto:mbougniayann@gmail.com', label: 'Email' }
   ]
 
+  // JSON-LD Person Schema for SEO
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Myli',
+    jobTitle: 'Développeur Fullstack',
+    url: 'https://myli-portfolio.com',
+    sameAs: [
+      'https://github.com/Jiraya23',
+      'https://linkedin.com'
+    ]
+  }
+
   const trustSignals = [
     { label: tAbout('experience'), value: '5+' },
     { label: tAbout('projects'), value: '30+' },
     { label: tNav('testimonials'), value: '15+' }
   ]
 
-  // Ref and state to compute a responsive radius for badge placement
-  const circleRef = useRef<HTMLDivElement | null>(null)
-  const [radius, setRadius] = useState(0)
-
-  useEffect(() => {
-    function updateRadius() {
-      if (!circleRef.current) return
-      const w = circleRef.current.clientWidth
-      // radius is 45% of container width
-      setRadius(Math.round(w * 0.45))
-    }
-
-    updateRadius()
-    window.addEventListener('resize', updateRadius)
-    return () => window.removeEventListener('resize', updateRadius)
-  }, [])
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-96 md:h-96 bg-accent-500/20 rounded-full blur-[120px] opacity-60" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-accent-500/25 to-transparent -z-10 blur-3xl opacity-60" />
         <div className="absolute bottom-0 right-0 w-48 h-48 md:w-72 md:h-72 bg-accent-600/10 rounded-full blur-[100px] opacity-40" />
       </div>
 
@@ -197,74 +187,43 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 40 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center items-center"
           >
-            <div className="relative z-10 flex justify-center">
-              {/* Rotating container with circle and badges */}
+            {/* Outer Glow Backdrop */}
+            <div className="absolute inset-0 bg-[#8b5cf6]/20 blur-[120px] rounded-full scale-150 -z-10"></div>
+            
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* Rotating Ring */}
               <motion.div
-                ref={circleRef}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
-              >
-                {/* Dotted rotating circle */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-500/30" />
+                className="absolute inset-0 border-2 border-dashed border-[#8b5cf6]/30 rounded-full"
+              ></motion.div>
 
-                {/* Tech badges positioned using CSS transforms and dynamic radius */}
-                {techBadges.map((tech) => {
-                  const angleDeg = tech.position
+              {/* Central Image Wrapper */}
+              <div className="absolute inset-8 md:inset-10 lg:inset-12 rounded-full overflow-hidden border border-white/10 bg-[#1e1e2e]/60 backdrop-blur-[16px] shadow-2xl">
+                <Image
+                  src="/hero-illustration.svg"
+                  alt="Futuristic 3D Crystal"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
 
-                  // If radius is 0 (not measured yet), stack badges near center to avoid huge offsets
-                  const translateStyle = radius
-                    ? `translate(-50%, -50%) rotate(${angleDeg}deg) translate(${radius}px) rotate(-${angleDeg}deg)`
-                    : 'translate(-50%, -50%)'
-
-                  return (
-                    <div
-                      key={tech.name}
-                      className="absolute left-1/2 top-1/2"
-                      style={{ transform: translateStyle }}
-                    >
-                      <motion.div
-                        animate={{ rotate: -360, opacity: 1, scale: 1 }}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
-                          default: { delay: 0.8, duration: 0.5 }
-                        }}
-                      >
-                        <div className="flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-xl px-3 py-1 shadow-lg text-sm">
-                          <tech.icon className="w-4 h-4 text-accent-400" />
-                          <span className="font-medium text-white">
-                            {tech.name}
-                          </span>
-                        </div>
-                      </motion.div>
-                    </div>
-                  )
-                })}
-
-                {/* Main circular image in the center (not rotating) */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(-50%, -50%) rotate(0deg)' }}>
-                  <div className="relative w-36 h-36 md:w-56 md:h-56 lg:w-64 lg:h-64">
-                    {/* Glow effect behind the circle */}
-                    <div className="absolute inset-0 bg-accent-500/30 rounded-full blur-[60px] -z-10" />
-
-                    {/* Circular static image */}
-                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-dashed border-accent-500/50 shadow-violet-lg bg-slate-950">
-                      <Image
-                        src="/hero-illustration.svg"
-                        alt="Illustration Hero"
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              {/* Floating Tech Badges */}
+              <div className="absolute -top-4 right-10 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce">
+                <span className="text-sm font-bold text-[#dfe3e7]">TypeScript</span>
+              </div>
+              <div className="absolute top-1/2 -right-8 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse">
+                <span className="text-sm font-bold text-[#dfe3e7]">Node.js</span>
+              </div>
+              <div className="absolute bottom-10 -left-6 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
+                <span className="text-sm font-bold text-[#dfe3e7]">React ⚛</span>
+              </div>
+              <div className="absolute top-20 -left-12 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce delay-1000">
+                <span className="text-sm font-bold text-[#dfe3e7]">Next.js</span>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -53,9 +53,29 @@ export default function BlogPostPage({ params }: { params: { locale: string; slu
     notFound()
   }
 
+  // Schema.org JSON-LD for Article
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    image: `https://myli-portfolio.com${post.image}`,
+    author: {
+      '@type': 'Person',
+      name: 'Myli',
+    },
+    datePublished: new Date(post.date).toISOString() !== 'Invalid Date' 
+      ? new Date(post.date).toISOString() 
+      : new Date().toISOString(),
+  }
+
   return (
     <main className="bg-dark-950 text-white py-24">
-      <div className="container mx-auto px-6">
+      <article className="container mx-auto px-6">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <section className="space-y-8">
             <div className="space-y-4">

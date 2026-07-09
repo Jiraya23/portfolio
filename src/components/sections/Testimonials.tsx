@@ -12,7 +12,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24"
+      className="relative py-24 bg-surface-container-low"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -39,7 +39,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="relative p-8 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-sm hover:border-accent-500/50 transition-all duration-300">
+              <div className="relative p-8 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-6 right-6">
                   <Quote className="w-10 h-10 text-accent-500/20" />
                 </div>

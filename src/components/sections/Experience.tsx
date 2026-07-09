@@ -51,7 +51,7 @@ export default function Experience() {
 
                 {/* Content Card */}
                 <div className={`w-full lg:w-[45%] ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                  <div className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:border-accent-500/30 transition-colors">
+                  <div className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <div className="flex items-center gap-2 text-accent-400">
                         <Building className="w-4 h-4" />

@@ -29,7 +29,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24"
+      className="relative py-24 bg-surface-container-low"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -87,7 +87,7 @@ export default function Skills() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:border-accent-500/30 transition-colors"
+              className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
