@@ -4,8 +4,11 @@ const SECTION_IDS = ['about', 'skills', 'experience', 'projects', 'services', 'b
 
 type SectionId = (typeof SECTION_IDS)[number]
 
+const isSectionId = (value: string): value is SectionId =>
+  SECTION_IDS.includes(value as SectionId)
+
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<string>('')
+  const [activeSection, setActiveSection] = useState<SectionId | ''>('')
 
   useEffect(() => {
     const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(
@@ -23,7 +26,11 @@ export function useActiveSection() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
 
         if (visible.length > 0) {
-          setActiveSection(visible[0].target.id)
+          const sectionId = visible[0].target.id
+
+          if (isSectionId(sectionId)) {
+            setActiveSection(sectionId)
+          }
         }
       },
       {

@@ -32,9 +32,9 @@ export default function Hero() {
   const isVisible = true
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
+    { icon: FaGithub, href: 'https://github.com/Jiraya23', label: 'GitHub' },
     { icon: FaLinkedinIn, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:mbougniayann@gmail.com', label: 'Email' }
   ]
 
   const trustSignals = [
@@ -251,16 +251,15 @@ export default function Hero() {
                   <div className="relative w-36 h-36 md:w-56 md:h-56 lg:w-64 lg:h-64">
                     {/* Glow effect behind the circle */}
                     <div className="absolute inset-0 bg-accent-500/30 rounded-full blur-[60px] -z-10" />
-                    
-                    {/* Circular Image */}
-                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-accent-500/50 shadow-violet-lg">
+
+                    {/* Circular static image */}
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-dashed border-accent-500/50 shadow-violet-lg bg-slate-950">
                       <Image
-                        src="https://coresg-normal.trae.ai/api/ide/v1/text-to-image?prompt=a%20beautiful%203D%20purple%20crystal%20abstract%20shape%2C%20glowing%20neon%20purple%20lines%2C%20dark%20background%2C%208k%20render&image_size=square_hd"
-                        alt="Myli"
+                        src="/hero-illustration.svg"
+                        alt="Illustration Hero"
                         fill
                         className="object-cover"
                         priority
-                        unoptimized
                       />
                     </div>
                   </div>

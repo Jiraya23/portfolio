@@ -74,34 +74,22 @@ export default function Contact() {
 
             <p className="max-w-xl text-body-lg text-on-surface-variant">{t('description')}</p>
 
-            <div className="space-y-4">
-              <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-                <div className="flex items-center gap-4">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <span className="material-symbols-outlined">mail</span>
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-on-surface-variant">Email</p>
-                    <p className="mt-2 text-sm font-semibold text-on-surface">contact@prenom.dev</p>
-                  </div>
+            <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <p className="text-xs uppercase tracking-[0.35em] text-primary">Email</p>
+                  <p className="text-sm font-semibold text-on-surface">contact@prenom.dev</p>
                 </div>
-              </div>
 
-              <div className="rounded-3xl border border-white/10 bg-surface-container/70 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-                <div className="flex items-center gap-4">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <span className="material-symbols-outlined">location_on</span>
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-on-surface-variant">{t('location')}</p>
-                    <p className="mt-2 text-sm font-semibold text-on-surface">Paris, France</p>
-                  </div>
+                <div className="space-y-4">
+                  <p className="text-xs uppercase tracking-[0.35em] text-primary">{t('location')}</p>
+                  <p className="text-sm font-semibold text-on-surface">Paris, France</p>
                 </div>
-              </div>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-sm text-primary shadow-[0_0_40px_rgba(139,92,246,0.16)]">
-                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                <span>{t('available')}</span>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-3 text-sm text-primary shadow-[0_0_40px_rgba(139,92,246,0.16)]">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  <span>{t('available')}</span>
+                </div>
               </div>
             </div>
           </div>

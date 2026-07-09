@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="heroIllustrationTitle">
+  <title id="heroIllustrationTitle">Illustration statique pour la section hero</title>
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.55" />
+      <stop offset="70%" stop-color="#7c3aed" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" rx="120" fill="url(#bgGradient)" />
+  <circle cx="300" cy="300" r="200" fill="url(#centerGlow)" />
+  <circle cx="300" cy="300" r="152" fill="#111827" stroke="#7c3aed" stroke-width="2" opacity="0.9" />
+  <path d="M150 220 C180 160 260 130 330 170 C400 210 450 300 410 370 C370 440 270 460 200 420" fill="none" stroke="#c4b5fd" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+  <path d="M440 210 L490 160" fill="none" stroke="#a78bfa" stroke-width="18" stroke-linecap="round" opacity="0.7" />
+  <g transform="translate(180 240)">
+    <rect x="0" y="0" width="240" height="140" rx="32" fill="#0f172a" opacity="0.92" />
+    <rect x="18" y="18" width="204" height="44" rx="18" fill="#8b5cf6" opacity="0.95" />
+    <rect x="18" y="74" width="104" height="22" rx="12" fill="#a78bfa" opacity="0.8" />
+    <rect x="18" y="104" width="140" height="22" rx="12" fill="#7c3aed" opacity="0.7" />
+  </g>
+  <circle cx="300" cy="120" r="22" fill="#c4b5fd" opacity="0.9" />
+  <circle cx="170" cy="410" r="16" fill="#a78bfa" opacity="0.85" />
+  <circle cx="430" cy="470" r="12" fill="#8b5cf6" opacity="0.9" />
+</svg>
