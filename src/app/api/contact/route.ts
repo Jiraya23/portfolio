@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
   const { name, email, subject, message } = parseResult.data
 
   try {
-    await sendEmail({
+    const result = await sendEmail({
       to: process.env.RESEND_TO_EMAIL ?? 'hello@myli.dev',
       fromName: name,
       replyTo: email,
@@ -36,8 +36,14 @@ export async function POST(request: NextRequest) {
       text: `Nom : ${name}\nEmail : ${email}\nObjet : ${subject}\n\n${message}`,
     })
 
+    if (result.error) {
+      console.error('Resend API Error:', result.error)
+      return NextResponse.json({ error: result.error.message }, { status: 400 })
+    }
+
     return NextResponse.json({ message: 'Email sent successfully' })
-  } catch {
+  } catch (error) {
+    console.error('Contact Route Exception:', error)
     return NextResponse.json({ error: 'Unable to send email' }, { status: 500 })
   }
 }
