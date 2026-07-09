@@ -29,6 +29,8 @@ export async function POST(request: NextRequest) {
   try {
     await sendEmail({
       to: process.env.RESEND_TO_EMAIL ?? 'hello@myli.dev',
+      fromName: name,
+      replyTo: email,
       subject: `Nouveau message portfolio : ${subject}`,
       html: `<p><strong>Nom :</strong> ${name}</p><p><strong>Email :</strong> ${email}</p><p><strong>Objet :</strong> ${subject}</p><p><strong>Message :</strong></p><p>${message.replace(/\n/g, '<br/>')}</p>`,
       text: `Nom : ${name}\nEmail : ${email}\nObjet : ${subject}\n\n${message}`,

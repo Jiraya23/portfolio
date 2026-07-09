@@ -4,11 +4,15 @@ const apiKey = process.env.RESEND_API_KEY
 
 export async function sendEmail({
   to,
+  fromName,
+  replyTo,
   subject,
   html,
   text,
 }: {
   to: string
+  fromName?: string
+  replyTo?: string
   subject: string
   html: string
   text: string
@@ -29,10 +33,13 @@ export async function sendEmail({
   }
 
   const resend = new Resend(apiKey)
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'no-reply@myli.dev'
+  const fromString = fromName ? `${fromName} <${fromEmail}>` : fromEmail
 
   return resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL ?? 'no-reply@myli.dev',
+    from: fromString,
     to,
+    replyTo: replyTo,
     subject,
     html,
     text,
