@@ -42,8 +42,8 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ message: 'Email sent successfully' })
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact Route Exception:', error)
-    return NextResponse.json({ error: 'Unable to send email' }, { status: 500 })
+    return NextResponse.json({ error: error.message || 'Unable to send email', details: String(error) }, { status: 500 })
   }
 }
