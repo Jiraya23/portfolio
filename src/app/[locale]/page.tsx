@@ -18,7 +18,7 @@ const Contact = dynamic(() => import('@/components/sections/Contact'))
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const resolvedParams = await params
-  const title = resolvedParams.locale === 'fr' ? 'Myli Portfolio' : 'Myli Portfolio'
+  const title = resolvedParams.locale === 'fr' ? 'Myli-Portfolio' : 'Myli-Portfolio'
   const description =
     resolvedParams.locale === 'fr'
       ? 'Portfolio de Myli, développeur web fullstack. Spécialisé en React, Next.js, Node.js.'
