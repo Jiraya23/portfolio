@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
       '@type': 'Person',
       name: 'Myli',
     },
-    datePublished: new Date(post.date).toISOString() !== 'Invalid Date'
+    datePublished: !isNaN(new Date(post.date).getTime())
       ? new Date(post.date).toISOString()
       : new Date().toISOString(),
   }

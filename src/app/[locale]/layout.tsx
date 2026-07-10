@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://myli237.vercel.app'),
   title: {
     default: 'Myli - Développeur Web Fullstack',
     template: '%s | Myli'
