@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Button } from '@/components/ui/Button'
+import { buttonVariants } from '@/components/ui/Button'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { motion } from 'framer-motion'
 import { MapPin, Briefcase, Coffee, FolderOpen } from 'lucide-react'
@@ -10,10 +10,10 @@ export default function About() {
   const t = useTranslations('about')
 
   const stats = [
-    { icon: MapPin, label: t('location'), value: 'Paris, FR' },
+    { icon: MapPin, label: t('location'), value: 'Douala, CAM' },
     { icon: Briefcase, label: t('experience'), value: '5+ Années' },
-    { icon: FolderOpen, label: t('projects'), value: '30+' },
-    { icon: Coffee, label: t('coffee'), value: '∞' },
+    { icon: FolderOpen, label: t('projects'), value: '3+' },
+    { icon: Coffee, label: t('coffee'), value: '100%' },
   ]
 
   return (
@@ -84,13 +84,15 @@ export default function About() {
             </div>
 
             <div className="mt-10">
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2"
+              <a
+                href="/cv.pdf"
+                download="CV_Myli.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ size: 'lg', variant: 'outline', className: 'gap-2' })}
               >
                 {t('cta')}
-              </Button>
+              </a>
             </div>
           </motion.div>
         </div>
