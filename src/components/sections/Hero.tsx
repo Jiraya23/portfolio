@@ -42,8 +42,8 @@ export default function Hero() {
 
   const trustSignals = [
     { label: tAbout('experience'), value: '5+' },
-    { label: tAbout('projects'), value: '30+' },
-    { label: tNav('testimonials'), value: '15+' }
+    { label: tAbout('projects'), value: '3+' },
+    { label: tNav('testimonials'), value: '3+' }
   ]
 
   return (
@@ -216,7 +216,7 @@ export default function Hero() {
                 <span className="text-sm font-bold text-[#dfe3e7]">TypeScript</span>
               </div>
               <div className="absolute top-1/2 -right-8 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse">
-                <span className="text-sm font-bold text-[#dfe3e7]">Node.js</span>
+                <span className="text-sm font-bold text-[#dfe3e7]">Laravel</span>
               </div>
               <div className="absolute bottom-10 -left-6 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
                 <span className="text-sm font-bold text-[#dfe3e7]">React ⚛</span>

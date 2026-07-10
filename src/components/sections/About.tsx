@@ -86,9 +86,7 @@ export default function About() {
             <div className="mt-10">
               <a
                 href="/cv.pdf"
-                download="CV_Myli.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="Cv_Myli.pdf"
                 className={buttonVariants({ size: 'lg', variant: 'outline', className: 'gap-2' })}
               >
                 {t('cta')}
