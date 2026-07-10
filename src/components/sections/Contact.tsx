@@ -7,7 +7,10 @@ import { z } from 'zod'
 import { useTranslations } from 'next-intl'
 
 import { Mail, MapPin } from 'lucide-react'
-
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/Button'
 type ContactFormValues = {
   name: string
   email: string
@@ -65,8 +68,8 @@ export default function Contact() {
         <h2 className="text-[32px] md:text-[40px] font-bold mb-20 relative text-[#dfe3e7] after:content-[''] after:block after:w-[60px] after:h-1 after:bg-[#8b5cf6] after:mt-3 after:rounded-sm">
           {t('subtitle') || 'Parlons de votre projet'}
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div className="space-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+          <div className="space-y-8 lg:col-span-2">
             <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
                 <Mail className="text-[#8b5cf6] w-6 h-6" />
@@ -95,67 +98,67 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 md:p-12 rounded-xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+          <div className="lg:col-span-3 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-10 md:p-14 rounded-2xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] hover:border-[#8b5cf6]/30 transition-all duration-300">
             <div className="absolute -z-10 -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/20 blur-[60px] rounded-full"></div>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-1">
-                  <label className="text-sm font-medium text-[#cbc3d7]">{t('name') || 'Nom complet'}</label>
-                  <input
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <Label className="text-sm font-semibold text-[#cbc3d7]">{t('name') || 'Nom complet'}</Label>
+                  <Input
                     {...register('name')}
-                    className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-9 py-3 text-[#dfe3e7] outline-none"
+                    className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
                     placeholder="Entrez votre nom"
                     type="text"
                   />
-                  {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
+                  {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
                 </div>
-                <div className="space-y-1">
-                  <label className="text-sm font-medium text-[#cbc3d7]">{t('email') || 'Email'}</label>
-                  <input
+                <div className="space-y-3">
+                  <Label className="text-sm font-semibold text-[#cbc3d7]">{t('email') || 'Email'}</Label>
+                  <Input
                     {...register('email')}
-                    className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                    className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
                     placeholder="entrez votre adresse mail"
                     type="email"
                   />
-                  {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+                  {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
                 </div>
               </div>
-              <div className="space-y-1">
-                <label className="text-sm font-medium text-[#cbc3d7]">{t('subject') || 'Sujet'}</label>
-                <input
+              <div className="space-y-3">
+                <Label className="text-sm font-semibold text-[#cbc3d7]">{t('subject') || 'Sujet'}</Label>
+                <Input
                   {...register('subject')}
-                  className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                  className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
                   placeholder="Collaboration / Freelance / Question"
                   type="text"
                 />
-                {errors.subject && <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>}
+                {errors.subject && <p className="text-sm text-red-500">{errors.subject.message}</p>}
               </div>
-              <div className="space-y-1">
-                <label className="text-sm font-medium text-[#cbc3d7]">{t('message') || 'Message'}</label>
-                <textarea
+              <div className="space-y-3">
+                <Label className="text-sm font-semibold text-[#cbc3d7]">{t('message') || 'Message'}</Label>
+                <Textarea
                   {...register('message')}
-                  className="w-full bg-[#13131a] border border-[#494454] rounded-xl focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all px-6 py-3 text-[#dfe3e7] outline-none"
+                  className="min-h-[180px] text-base px-6 py-4 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7] resize-y"
                   placeholder="Votre message ici..."
-                  rows={4}
-                ></textarea>
-                {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
+                />
+                {errors.message && <p className="text-sm text-red-500">{errors.message.message}</p>}
               </div>
 
               {status === 'success' && (
-                <p className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-200">{t('success')}</p>
+                <p className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-base text-green-200">{t('success')}</p>
               )}
 
               {status === 'error' && errorMessage && (
-                <p className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-200">{errorMessage}</p>
+                <p className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-base text-red-200">{errorMessage}</p>
               )}
 
-              <button
-                className="w-full bg-[#8b5cf6] text-white py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all flex justify-center items-center mt-6 disabled:opacity-70"
+              <Button
+                size="lg"
+                className="w-full h-16 text-lg font-bold rounded-xl mt-4"
                 type="submit"
                 disabled={status === 'sending'}
               >
                 {status === 'sending' ? t('sending') : t('send')}
-              </button>
+              </Button>
             </form>
           </div>
         </div>
