@@ -40,6 +40,12 @@ export default function Contact() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     mode: 'onTouched',
+    defaultValues: {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    }
   })
 
   const onSubmit = async (values: ContactFormValues) => {
