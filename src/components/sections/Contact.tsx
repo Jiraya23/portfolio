@@ -9,8 +9,15 @@ import { useTranslations } from 'next-intl'
 import { Mail, MapPin } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/Button'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
 type ContactFormValues = {
   name: string
   email: string
@@ -30,12 +37,7 @@ export default function Contact() {
     message: z.string().min(10, t('errors.message')),
   })
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactFormValues>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     mode: 'onTouched',
   })
@@ -54,7 +56,7 @@ export default function Contact() {
 
     if (response.ok) {
       setStatus('success')
-      reset()
+      form.reset()
       return
     }
 
@@ -100,48 +102,81 @@ export default function Contact() {
 
           <div className="lg:col-span-3 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-10 md:p-14 rounded-2xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] hover:border-[#8b5cf6]/30 transition-all duration-300">
             <div className="absolute -z-10 -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/20 blur-[60px] rounded-full"></div>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <Label className="text-sm font-semibold text-[#cbc3d7]">{t('name') || 'Nom complet'}</Label>
-                  <Input
-                    {...register('name')}
-                    className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
-                    placeholder="Entrez votre nom"
-                    type="text"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem className="space-y-3">
+                        <FormLabel>{t('name') || 'Nom complet'}</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                            placeholder="Entrez votre nom"
+                            type="text"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                  {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-3">
-                  <Label className="text-sm font-semibold text-[#cbc3d7]">{t('email') || 'Email'}</Label>
-                  <Input
-                    {...register('email')}
-                    className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
-                    placeholder="entrez votre adresse mail"
-                    type="email"
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="space-y-3">
+                        <FormLabel>{t('email') || 'Email'}</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                            placeholder="entrez votre adresse mail"
+                            type="email"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                  {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
                 </div>
-              </div>
-              <div className="space-y-3">
-                <Label className="text-sm font-semibold text-[#cbc3d7]">{t('subject') || 'Sujet'}</Label>
-                <Input
-                  {...register('subject')}
-                  className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
-                  placeholder="Collaboration / Freelance / Question"
-                  type="text"
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel>{t('subject') || 'Sujet'}</FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                          placeholder="Collaboration / Freelance / Question"
+                          type="text"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-                {errors.subject && <p className="text-sm text-red-500">{errors.subject.message}</p>}
-              </div>
-              <div className="space-y-3">
-                <Label className="text-sm font-semibold text-[#cbc3d7]">{t('message') || 'Message'}</Label>
-                <Textarea
-                  {...register('message')}
-                  className="min-h-[180px] text-base px-6 py-4 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7] resize-y"
-                  placeholder="Votre message ici..."
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel>{t('message') || 'Message'}</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          {...field}
+                          className="min-h-[180px] text-base px-6 py-4 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7] resize-y"
+                          placeholder="Votre message ici..."
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-                {errors.message && <p className="text-sm text-red-500">{errors.message.message}</p>}
-              </div>
 
               {status === 'success' && (
                 <p className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-base text-green-200">{t('success')}</p>
@@ -159,7 +194,8 @@ export default function Contact() {
               >
                 {status === 'sending' ? t('sending') : t('send')}
               </Button>
-            </form>
+              </form>
+            </Form>
           </div>
         </div>
       </div>
