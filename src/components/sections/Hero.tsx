@@ -42,7 +42,7 @@ export default function Hero() {
 
   const trustSignals = [
     { label: tAbout('experience'), value: '1+' },
-    { label: tAbout('projects'), value: '3+' },
+    { label: tAbout('projects'), value: '5+' },
   /*   { label: tNav('testimonials'), value: '3+' } */
   ]
 

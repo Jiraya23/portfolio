@@ -11,8 +11,8 @@ export default function About() {
 
   const stats = [
     { icon: MapPin, label: t('location'), value: 'Douala, Cameroun' },
-    { icon: Briefcase, label: t('experience'), value: '1+ Années' },
-    { icon: FolderOpen, label: t('projects'), value: '3+' },
+    { icon: Briefcase, label: t('experience'), value: '1+ Année' },
+    { icon: FolderOpen, label: t('projects'), value: '5+' },
     { icon: Coffee, label: t('coffee'), value: '100%' },
   ]
 
