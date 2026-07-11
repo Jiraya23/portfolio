@@ -155,7 +155,7 @@ export default function Hero() {
                   }}
                 >
                   {tNav('cta')}
-                  <Sparkles className="w-4 h-4" />
+                {/*   <Sparkles className="w-4 h-4" /> */}
                 </Button>
               </motion.div>
             </div>
