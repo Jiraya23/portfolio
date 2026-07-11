@@ -212,16 +212,16 @@ export default function Hero() {
               </div>
 
               {/* Floating Tech Badges */}
-              <div className="absolute -top-4 right-10 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
+              <div className="absolute -top-4 right-10 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce">
                 <span className="text-sm font-bold text-[#dfe3e7]">TypeScript</span>
               </div>
-              <div className="absolute top-1/2 -right-8 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
+              <div className="absolute top-1/2 -right-8 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse">
                 <span className="text-sm font-bold text-[#dfe3e7]">Laravel</span>
               </div>
               <div className="absolute bottom-10 -left-6 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
                 <span className="text-sm font-bold text-[#dfe3e7]">React</span>
               </div>
-              <div className="absolute top-20 -left-12 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-1000">
+              <div className="absolute top-20 -left-12 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce delay-1000">
                 <span className="text-sm font-bold text-[#dfe3e7]">Next.js</span>
               </div>
             </div>
