@@ -69,7 +69,7 @@ export default function Home() {
       <Experience />
       <Projects />
       <Services />
-      <Testimonials />
+     {/*  <Testimonials /> */}
       <Blog />
       <Contact />
       <Footer />
