@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground`}>
         {children}
       </body>
     </html>
