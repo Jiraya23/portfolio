@@ -224,7 +224,7 @@
 }
 
 :root {
-  --background: #ece0ae; /* amber-50 */
+  --background: #ede9d8; /* amber-50 */
   --foreground: oklch(0.25 0.02 280); /* Gris ardoise adouci */
   --card: oklch(0.97 0.01 280); /* Blanc grisé pour les cartes, fini le blanc pur */
   --card-foreground: oklch(0.25 0.02 280);
