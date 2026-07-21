@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import { notFound } from 'next/navigation'
 
 import { blogPosts } from '@/data/blogPosts'
@@ -74,7 +75,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   return (
     <main className="bg-dark-950 text-white py-24">
       <article className="container mx-auto px-6">
-        <script
+        <Script
+          id="article-jsonld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
         />

@@ -7,14 +7,10 @@ import { motion } from 'framer-motion'
 import {
   Mail,
   ChevronRight,
-  Sparkles,
-  Code2,
-  Layout,
-  DatabaseZap,
-  Code,
 } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import Image from 'next/image'
+import Script from 'next/script'
 export default function Hero() {
   const t = useTranslations('hero')
   const tNav = useTranslations('nav')
@@ -51,7 +47,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      <script
+      <Script
+        id="person-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
@@ -81,7 +78,7 @@ export default function Hero() {
             </div>
 
             {/* Main title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               {t('greeting')}{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
                 Myli
@@ -89,7 +86,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-xl md:text-2xl text-gray-300 mb-4">
+            <h2 className="text-xl md:text-2xl text-muted-foreground mb-4">
               {t('title')}{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-400 to-accent-600">
                 {t('titleAccent')}
@@ -97,7 +94,7 @@ export default function Hero() {
             </h2>
 
             {/* Description */}
-            <p className="text-gray-400 text-lg mb-8 max-w-xl">
+            <p className="text-muted-foreground text-lg mb-8 max-w-xl">
               {t('description')}
             </p>
 
@@ -113,7 +110,7 @@ export default function Hero() {
                   <div className="text-3xl font-bold text-accent-400">
                     {signal.value}
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-muted-foreground">
                     {signal.label}
                   </div>
                 </motion.div>
@@ -173,7 +170,7 @@ export default function Hero() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-300 hover:bg-accent-500/10 hover:border-accent-500 hover:text-accent-400 transition-all duration-300"
+                  className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:bg-accent-500/10 hover:border-accent-500 hover:text-accent-400 transition-all duration-300"
                   aria-label={link.label}
                 >
                   <link.icon className="w-5 h-5" />
@@ -201,7 +198,7 @@ export default function Hero() {
               ></motion.div>
 
               {/* Central Image Wrapper */}
-              <div className="absolute inset-8 md:inset-10 lg:inset-12 rounded-full overflow-hidden border border-white/10 bg-[#1e1e2e]/60 backdrop-blur-[16px] shadow-2xl">
+              <div className="absolute inset-8 md:inset-10 lg:inset-12 rounded-full overflow-hidden border border-border bg-card/60 backdrop-blur-[16px] shadow-2xl">
                 <Image
                   src="/hero-illustration.svg"
                   alt="Futuristic 3D Crystal"
@@ -212,17 +209,17 @@ export default function Hero() {
               </div>
 
               {/* Floating Tech Badges */}
-              <div className="absolute -top-4 right-10 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce">
-                <span className="text-sm font-bold text-[#dfe3e7]">TypeScript</span>
+              <div className="absolute -top-4 right-10 bg-card/60 backdrop-blur-[16px] border border-accent-500/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce">
+                <span className="text-sm font-bold text-foreground">TypeScript</span>
               </div>
-              <div className="absolute top-1/2 -right-8 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse">
-                <span className="text-sm font-bold text-[#dfe3e7]">Laravel</span>
+              <div className="absolute top-1/2 -right-8 bg-card/60 backdrop-blur-[16px] border border-accent-500/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse">
+                <span className="text-sm font-bold text-foreground">Laravel</span>
               </div>
-              <div className="absolute bottom-10 -left-6 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
-                <span className="text-sm font-bold text-[#dfe3e7]">React</span>
+              <div className="absolute bottom-10 -left-6 bg-card/60 backdrop-blur-[16px] border border-accent-500/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-pulse delay-700">
+                <span className="text-sm font-bold text-foreground">React</span>
               </div>
-              <div className="absolute top-20 -left-12 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-[#8b5cf6]/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce delay-1000">
-                <span className="text-sm font-bold text-[#dfe3e7]">Next.js</span>
+              <div className="absolute top-20 -left-12 bg-card/60 backdrop-blur-[16px] border border-accent-500/40 px-4 py-2 rounded-xl flex items-center shadow-xl animate-bounce delay-1000">
+                <span className="text-sm font-bold text-foreground">Next.js</span>
               </div>
             </div>
           </motion.div>

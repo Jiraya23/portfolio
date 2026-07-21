@@ -12,7 +12,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 bg-surface-container-low"
+      className="relative py-24 bg-secondary/20"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -39,7 +39,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="relative p-8 rounded-2xl bg-gray-800/40 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="relative p-8 rounded-2xl bg-card/40 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-6 right-6">
                   <Quote className="w-10 h-10 text-accent-500/20" />
                 </div>
@@ -52,22 +52,22 @@ export default function Testimonials() {
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {`${testimonial.content}&quot;`}
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-linear-to-br from-accent-500 to-accent-600 flex items-center justify-center">
-                    <span className="text-lg font-bold text-white">
+                    <span className="text-lg font-bold text-primary-foreground">
                       {testimonial.name.charAt(0)}
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-white">
+                    <h4 className="font-bold text-foreground">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       {testimonial.role}, {testimonial.company}
                     </p>
                   </div>
