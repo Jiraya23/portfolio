@@ -13,7 +13,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative py-24"
+      className="relative py-24 bg-secondary/30"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -51,13 +51,13 @@ export default function Experience() {
 
                 {/* Content Card */}
                 <div className={`w-full lg:w-[45%] ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                  <div className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
+                  <div className="p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <div className="flex items-center gap-2 text-accent-400">
                         <Building className="w-4 h-4" />
                         <span className="font-semibold">{exp.company}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <div className="flex items-center gap-2 text-muted-foreground text-sm">
                         <Calendar className="w-3 h-3" />
                         {exp.period}
                       </div>
@@ -66,13 +66,13 @@ export default function Experience() {
                       </Badge>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3">
+                    <h3 className="text-xl font-bold text-foreground mb-3">
                       {exp.role}
                     </h3>
 
                     <ul className="space-y-2 mb-4">
                       {exp.description.map((point, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-gray-400 text-sm">
+                        <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-500 shrink-0" />
                           {point}
                         </li>

@@ -36,19 +36,19 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="border-t border-white/10 bg-dark-950/80">
+    <footer className="border-t border-border bg-background">
       <div className="container-main py-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div className="space-y-4">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 font-(--font-grotesk) text-2xl text-white"
+              className="inline-flex items-center gap-2 font-(--font-grotesk) text-2xl text-foreground"
             >
               <span>Myli</span>
               <span className="size-2 rounded-full bg-accent-500 shadow-[0_0_12px_rgba(139,92,246,0.7)]" />
             </Link>
 
-            <p className="max-w-sm text-sm leading-7 text-slate-400">
+            <p className="max-w-sm text-sm leading-7 text-muted-foreground">
               {tFooter("tagline")} avec une approche orientee produit, design et performance.
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="w-fit text-slate-400 transition hover:text-white"
+                  className="w-fit text-muted-foreground transition hover:text-foreground"
                 >
                   {link.label}
                 </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 backdrop-blur-sm transition hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-white"
+                    className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground backdrop-blur-sm transition hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-foreground"
                     aria-label={item.name}
                   >
                     <Icon className="size-4" />
@@ -97,9 +97,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8 bg-white/10" />
+        <Separator className="my-8 bg-border" />
 
-        <div className="flex flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-3 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>
             © 2026 Myli. {tFooter("rights")}.
           </p>

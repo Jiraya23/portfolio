@@ -12,7 +12,7 @@ export default function BlogSection() {
   const locale = useLocale()
 
   return (
-    <section id="blog" className="relative py-24">
+    <section id="blog" className="relative py-24 bg-background">
       <div className="container mx-auto px-6">
         <SectionTitle
           label={t('title')}
@@ -25,7 +25,7 @@ export default function BlogSection() {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-gray-900/50 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:-translate-y-2 hover:border-accent-500/40 transition-all duration-300"
+              className="overflow-hidden rounded-3xl border border-border bg-card/50 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:-translate-y-2 hover:border-accent-500/40 transition-all duration-300"
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
@@ -40,7 +40,7 @@ export default function BlogSection() {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-slate-300"
+                      className="rounded-full border border-border bg-secondary px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground"
                     >
                       {tag}
                     </span>
@@ -49,12 +49,12 @@ export default function BlogSection() {
               </div>
 
               <div className="space-y-4 p-6">
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-500">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-muted-foreground">
                   <span>{post.date}</span>
                   <span>{post.readTime}</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white">{post.title}</h2>
-                <p className="text-sm leading-6 text-slate-400">{post.description}</p>
+                <h2 className="text-2xl font-bold text-foreground">{post.title}</h2>
+                <p className="text-sm leading-6 text-muted-foreground">{post.description}</p>
                 <Link
                   href={`/${locale}/blog/${post.slug}`}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-accent-400 transition hover:text-accent-300"

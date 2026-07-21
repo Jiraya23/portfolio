@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import { Globe, Menu, Sparkles } from "lucide-react"
 
+import { ThemeToggle } from "@/components/ThemeToggle"
 import { buttonVariants } from "@/components/ui/Button"
 import {
   Sheet,
@@ -90,11 +91,11 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300",
         isScrolled
-          ? "border-white/10 bg-[rgba(13,13,20,0.82)] shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+          ? "border-border bg-background/80 shadow-[0_10px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
           : "border-transparent bg-transparent"
       )}
     >
-      <div className="h-1 w-full overflow-hidden bg-white/10">
+      <div className="h-1 w-full overflow-hidden bg-secondary">
         <div
           className="h-full bg-accent-400 transition-all duration-200"
           style={{ width: `${scrollProgress}%` }}
@@ -103,7 +104,7 @@ export default function Navbar() {
       <nav className="container-main flex h-20 items-center justify-between gap-4">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-2 font-(--font-grotesk) text-xl tracking-tight text-white transition hover:text-accent-300"
+          className="flex items-center gap-2 font-(--font-grotesk) text-xl tracking-tight text-foreground transition hover:text-accent-500"
         >
           <span>Myli</span>
           <span className="size-2 rounded-full bg-accent-500 shadow-[0_0_12px_rgba(139,92,246,0.7)]" />
@@ -119,8 +120,8 @@ export default function Navbar() {
                 key={item.key}
                 href={sectionHref(item.href)}
                 className={cn(
-                  "text-sm font-medium text-slate-400 transition hover:text-white",
-                  isActive && "text-accent-300"
+                  "text-sm font-medium text-muted-foreground transition hover:text-foreground",
+                  isActive && "text-accent-500"
                 )}
               >
                 {t(item.key)}
@@ -130,14 +131,14 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <div className="flex items-center rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
+          <div className="flex items-center rounded-full border border-border bg-secondary p-1 backdrop-blur-sm">
             <Link
               href={languageLinks.fr}
               className={cn(
                 "rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] transition",
                 locale === "fr"
                   ? "bg-accent-500 text-white shadow-(--shadow-violet)"
-                  : "text-slate-400 hover:text-white"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               FR
@@ -148,7 +149,7 @@ export default function Navbar() {
                 "rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] transition",
                 locale === "en"
                   ? "bg-accent-500 text-white shadow-(--shadow-violet)"
-                  : "text-slate-400 hover:text-white"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               EN
@@ -161,12 +162,13 @@ export default function Navbar() {
           >
             {t("cta")}
           </Link>
+          <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href={languageLinks[locale === "fr" ? "en" : "fr"]}
-            className="inline-flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 backdrop-blur-sm transition hover:border-accent-500/40 hover:text-white"
+            className="inline-flex size-10 items-center justify-center rounded-xl border border-border bg-secondary text-muted-foreground backdrop-blur-sm transition hover:border-accent-500/40 hover:text-foreground"
             aria-label="Switch language"
           >
             <Globe className="size-4" />
@@ -177,7 +179,7 @@ export default function Navbar() {
               render={
                 <button
                   type="button"
-                  className="inline-flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 backdrop-blur-sm transition hover:border-accent-500/40 hover:text-white"
+                  className="inline-flex size-10 items-center justify-center rounded-xl border border-border bg-secondary text-muted-foreground backdrop-blur-sm transition hover:border-accent-500/40 hover:text-foreground"
                   aria-label="Open navigation"
                 />
               }
@@ -187,14 +189,17 @@ export default function Navbar() {
 
             <SheetContent
               side="top"
-              className="border-b border-white/10 bg-[rgba(13,13,20,0.96)] px-6 pb-8 pt-4 text-white backdrop-blur-2xl"
+              className="border-b border-border bg-background/95 px-6 pb-8 pt-4 text-foreground backdrop-blur-2xl"
             >
+              <div className="absolute right-16 top-4">
+                <ThemeToggle />
+              </div>
               <SheetHeader className="px-0 pb-6">
-                <SheetTitle className="flex items-center gap-2 text-white">
-                  <Sparkles className="size-4 text-accent-400" />
+                <SheetTitle className="flex items-center gap-2 text-foreground">
+                  <Sparkles className="size-4 text-accent-500" />
                   Navigation
                 </SheetTitle>
-                <SheetDescription className="text-slate-400">
+                <SheetDescription className="text-muted-foreground">
                   Explore le portfolio et va directement a la section qui t interesse.
                 </SheetDescription>
               </SheetHeader>
@@ -205,7 +210,7 @@ export default function Navbar() {
                     key={item.key}
                     href={sectionHref(item.href)}
                     onClick={() => setIsOpen(false)}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-white"
+                    className="rounded-2xl border border-border bg-secondary px-4 py-3 text-sm font-medium text-muted-foreground transition hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-foreground"
                   >
                     {t(item.key)}
                   </Link>

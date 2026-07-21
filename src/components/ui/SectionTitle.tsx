@@ -35,7 +35,7 @@ function SectionTitle({
           align === "center" && "items-center"
         )}
       >
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {title}
         </h2>
 
@@ -45,7 +45,7 @@ function SectionTitle({
       {description ? (
         <p
           className={cn(
-            "max-w-2xl text-sm leading-7 text-slate-400 sm:text-base",
+            "max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base",
             align === "center" && "mx-auto"
           )}
         >

@@ -29,7 +29,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 bg-surface-container-low"
+      className="relative py-24 bg-background"
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -62,8 +62,8 @@ export default function Skills() {
                 onClick={() => setActiveCategory(tab.id as Category)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === tab.id
-                    ? 'bg-accent-500/20 border border-accent-500/50 text-accent-400 shadow-[0_0_20px_rgba(139,92,246,0.25)]'
-                    : 'bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:border-accent-500/30 hover:text-gray-200'
+                    ? 'bg-accent-500/20 border border-accent-500/50 text-accent-500 shadow-[0_0_20px_rgba(139,92,246,0.25)]'
+                    : 'bg-secondary border border-border text-muted-foreground hover:border-accent-500/30 hover:text-foreground'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -87,14 +87,14 @@ export default function Skills() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300"
+              className="p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-accent-500/10 flex items-center justify-center text-accent-400">
                     <Code2 className="w-5 h-5" />
                   </div>
-                  <span className="font-semibold text-white">{skill.name}</span>
+                  <span className="font-semibold text-foreground">{skill.name}</span>
                 </div>
                 <Badge variant="outline" className="text-accent-400 border-accent-500/30">
                   {skill.level}%
@@ -102,7 +102,7 @@ export default function Skills() {
               </div>
               
               {/* Progress Bar */}
-              <div className="relative h-2 w-full bg-gray-700/50 rounded-full overflow-hidden">
+              <div className="relative h-2 w-full bg-secondary rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}

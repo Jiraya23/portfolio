@@ -71,32 +71,32 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-[#171c1f]">
+    <section id="contact" className="py-20 bg-secondary/30">
       <div className="max-w-[1200px] mx-auto px-12">
-        <h2 className="text-[32px] md:text-[40px] font-bold mb-20 relative text-[#dfe3e7] after:content-[''] after:block after:w-[60px] after:h-1 after:bg-[#8b5cf6] after:mt-3 after:rounded-sm">
+        <h2 className="text-[32px] md:text-[40px] font-bold mb-20 relative text-foreground after:content-[''] after:block after:w-[60px] after:h-1 after:bg-[#8b5cf6] after:mt-3 after:rounded-sm">
           {t('subtitle') || 'Parlons de votre projet'}
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
           <div className="space-y-8 lg:col-span-2">
-            <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-[16px] border border-border p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
                 <Mail className="text-[#8b5cf6] w-6 h-6" />
               </div>
               <div>
-                <div className="text-[#cbc3d7] text-sm tracking-wide font-medium mb-1">Email</div>
-                <div className="font-bold text-[#dfe3e7]">contact@prenom.dev</div>
+                <div className="text-muted-foreground text-sm tracking-wide font-medium mb-1">Email</div>
+                <div className="font-bold text-foreground">contact@prenom.dev</div>
               </div>
             </div>
 
-            <div className="bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-[16px] border border-border p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
                 <MapPin className="text-[#8b5cf6] w-6 h-6" />
               </div>
               <div>
-                <div className="text-[#cbc3d7] text-sm tracking-wide font-medium mb-1">
+                <div className="text-muted-foreground text-sm tracking-wide font-medium mb-1">
                   {t('location') || 'Localisation'}
                 </div>
-                <div className="font-bold text-[#dfe3e7]">Douala, Cameroun</div>
+                <div className="font-bold text-foreground">Douala, Cameroun</div>
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="lg:col-span-3 bg-[#1e1e2e]/60 backdrop-blur-[16px] border border-white/10 p-10 md:p-14 rounded-2xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] hover:border-[#8b5cf6]/30 transition-all duration-300">
+          <div className="lg:col-span-3 bg-card/60 backdrop-blur-[16px] border border-border p-10 md:p-14 rounded-2xl relative hover:shadow-[0_0_40px_rgba(139,92,246,0.2)] hover:border-[#8b5cf6]/30 transition-all duration-300">
             <div className="absolute -z-10 -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/20 blur-[60px] rounded-full"></div>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -120,7 +120,7 @@ export default function Contact() {
                         <FormControl>
                           <Input
                             {...field}
-                            className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                            className="h-14 text-base px-6 bg-background border-input rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-foreground"
                             placeholder="Entrez votre nom"
                             type="text"
                           />
@@ -138,7 +138,7 @@ export default function Contact() {
                         <FormControl>
                           <Input
                             {...field}
-                            className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                            className="h-14 text-base px-6 bg-background border-input rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-foreground"
                             placeholder="entrez votre adresse mail"
                             type="email"
                           />
@@ -157,7 +157,7 @@ export default function Contact() {
                       <FormControl>
                         <Input
                           {...field}
-                          className="h-14 text-base px-6 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7]"
+                          className="h-14 text-base px-6 bg-background border-input rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-foreground"
                           placeholder="Collaboration / Freelance / Question"
                           type="text"
                         />
@@ -175,7 +175,7 @@ export default function Contact() {
                       <FormControl>
                         <Textarea
                           {...field}
-                          className="min-h-[180px] text-base px-6 py-4 bg-[#13131a]/80 border-[#494454] rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-[#dfe3e7] resize-y"
+                          className="min-h-[180px] text-base px-6 py-4 bg-background border-input rounded-xl focus-visible:border-[#8b5cf6] focus-visible:ring-1 focus-visible:ring-[#8b5cf6] transition-all text-foreground resize-y"
                           placeholder="Votre message ici..."
                         />
                       </FormControl>

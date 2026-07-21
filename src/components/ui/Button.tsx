@@ -13,11 +13,11 @@ const buttonVariants = cva(
         primary:
           "border-[var(--color-accent-500)] bg-[var(--color-accent-500)] text-white shadow-[var(--shadow-violet)] hover:border-[var(--color-accent-600)] hover:bg-[var(--color-accent-600)] hover:shadow-[var(--shadow-violet-lg)]",
         outline:
-          "border-white/10 bg-white/5 text-slate-100 backdrop-blur-sm hover:border-[var(--color-accent-500)]/50 hover:bg-[var(--color-accent-500)]/10 hover:text-white",
+          "border-border bg-secondary text-foreground backdrop-blur-sm hover:border-[var(--color-accent-500)]/50 hover:bg-[var(--color-accent-500)]/10 hover:text-accent-500",
         ghost:
-          "border-transparent bg-transparent text-slate-300 hover:bg-white/5 hover:text-white",
+          "border-transparent bg-transparent text-muted-foreground hover:bg-secondary hover:text-foreground",
         secondary:
-          "border-white/10 bg-[var(--color-dark-100)] text-slate-100 hover:border-[var(--color-accent-500)]/40 hover:bg-[var(--color-dark-200)]",
+          "border-border bg-secondary text-secondary-foreground hover:border-[var(--color-accent-500)]/40 hover:bg-secondary/80",
         destructive:
           "border-red-500/30 bg-red-500/10 text-red-200 hover:bg-red-500/20 hover:text-red-100",
         link: "border-transparent bg-transparent px-0 text-[var(--color-accent-400)] hover:text-[var(--color-accent-300)] hover:underline",
