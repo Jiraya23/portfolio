@@ -50,38 +50,38 @@ export default function Experience() {
                 <div className="absolute max-lg:left-4 lg:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-accent-500 border-4 border-gray-900 shadow-[0_0_20px_rgba(139,92,246,0.6)] z-10" />
 
                 {/* Content Card */}
-                <div className={`w-full lg:w-[45%] max-lg:pl-14 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                  <div className="p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <div className="flex items-center gap-2 text-accent-400">
-                        <Building className="w-4 h-4" />
+                <div className={`w-full lg:w-[45%] max-lg:pl-11 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
+                  <div className="p-4 sm:p-5 md:p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <div className="flex items-center gap-1.5 md:gap-2 text-accent-400 text-sm md:text-base">
+                        <Building className="w-3.5 h-3.5 md:w-4 md:h-4" />
                         <span className="font-semibold">{exp.company}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                      <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground text-xs md:text-sm">
                         <Calendar className="w-3 h-3" />
                         {exp.period}
                       </div>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-[10px] md:text-xs">
                         {exp.type === 'work' ? 'Work' : 'Education'}
                       </Badge>
                     </div>
 
-                    <h3 className="text-xl font-bold text-foreground mb-3">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">
                       {exp.role}
                     </h3>
 
-                    <ul className="space-y-2 mb-4">
+                    <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
                       {exp.description.map((point, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                        <li key={idx} className="flex items-start gap-2 text-muted-foreground text-xs md:text-sm leading-relaxed">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-500 shrink-0" />
                           {point}
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
+                        <Badge key={tech} variant="secondary" className="text-[10px] md:text-xs px-2 py-0.5">
                           {tech}
                         </Badge>
                       ))}
