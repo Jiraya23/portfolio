@@ -33,7 +33,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-accent-500 to-accent-900 rounded-full" />
+          <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-accent-500 to-accent-900 rounded-full" />
 
           {/* Timeline Items */}
           <div className="space-y-16">
@@ -47,10 +47,10 @@ export default function Experience() {
                 className={`relative flex ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-accent-500 border-4 border-gray-900 shadow-[0_0_20px_rgba(139,92,246,0.6)] z-10" />
+                <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-accent-500 border-4 border-gray-900 shadow-[0_0_20px_rgba(139,92,246,0.6)] z-10" />
 
                 {/* Content Card */}
-                <div className={`w-full lg:w-[45%] ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
+                <div className={`w-full lg:w-[45%] ${index % 2 === 0 ? 'pl-12 lg:pl-0 lg:pr-12' : 'pl-12'}`}>
                   <div className="p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <div className="flex items-center gap-2 text-accent-400">
