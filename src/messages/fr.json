@@ -12,19 +12,19 @@
     "cta": "Me contacter"
   },
   "hero": {
-    "badge": " Disponible pour des missions",
+    "badge": "Disponible pour des missions",
     "greeting": "Bonjour, je suis",
-    "title": "Développeur",
-    "titleAccent": "Fullstack",
-    "description": "Je crée des applications web modernes, performantes et accessibles. Passionné par le code propre et les interfaces élégantes.",
+    "title": "Ingénieur des Travaux en Génie Logiciel",
+    "titleAccent": "Développeur Fullstack",
+    "description": "Je suis Myli, ingénieur en Génie Logiciel et développeur fullstack. Je conçois des interfaces performantes avec Next.js, développe des API robustes avec Laravel et assure les mises en production avec Docker.",
     "cta_primary": "Voir mes projets",
     "cta_secondary": "Télécharger CV"
   },
   "about": {
     "title": "À Propos",
     "subtitle": "Qui suis-je ?",
-    "bio1": "Développeur web fullstack passionné avec plusieurs années d'expérience dans la création d'applications web modernes.",
-    "bio2": "J'aime transformer des idées complexes en expériences digitales simples et élégantes.",
+    "bio1": "Ingénieur des Travaux en Génie Logiciel diplômé avec 3 ans d'expérience en développement web et maintenance informatique. J'ai participé à la conception d'applications Next.js, au développement d'API avec Laravel et à la mise en production avec Docker.",
+    "bio2": "Je privilégie le code propre, la maintenabilité et l'automatisation des déploiements (CI/CD). J'aime travailler en équipe pour transformer des exigences métier en solutions techniques efficaces.",
     "location": "Localisation",
     "experience": "Expérience",
     "projects": "Projets",
@@ -40,7 +40,9 @@
   },
   "experience": {
     "title": "Expérience",
-    "subtitle": "Mon parcours"
+    "subtitle": "Mon parcours",
+    "work": "Expérience professionnelle",
+    "education": "Formation"
   },
   "projects": {
     "title": "Projets",

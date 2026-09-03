@@ -62,7 +62,7 @@ export default function Experience() {
                         {exp.period}
                       </div>
                       <Badge variant="outline" className="text-[10px] md:text-xs">
-                        {exp.type === 'work' ? 'Work' : 'Education'}
+                        {t(exp.type)}
                       </Badge>
                     </div>
 

@@ -40,7 +40,9 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "My journey"
+    "subtitle": "My journey",
+    "work": "Work",
+    "education": "Education"
   },
   "projects": {
     "title": "Projects",

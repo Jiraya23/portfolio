@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useTranslations } from 'next-intl'
 
-import { Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/Button'
@@ -84,7 +84,17 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-muted-foreground text-sm tracking-wide font-medium mb-1">Email</div>
-                <div className="font-bold text-foreground">contact@prenom.dev</div>
+                <div className="font-bold text-foreground">Mbougniayann@gmail.com</div>
+              </div>
+            </div>
+
+            <div className="bg-card/60 backdrop-blur-[16px] border border-border p-12 rounded-xl flex items-center gap-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-[#8b5cf6]/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 bg-[#8b5cf6]/10 rounded-full flex items-center justify-center shrink-0">
+                <Phone className="text-[#8b5cf6] w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-muted-foreground text-sm tracking-wide font-medium mb-1">Téléphone</div>
+                <div className="font-bold text-foreground">+237 651 877 541</div>
               </div>
             </div>
 

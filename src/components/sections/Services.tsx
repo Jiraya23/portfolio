@@ -4,25 +4,7 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { services } from '@/data/services'
-import {
-  Monitor,
-  Layout,
-  Server,
-  Sparkles,
-  Zap,
-  Rocket,
-  ArrowRight
-} from 'lucide-react'
-
-// Map service icons to components
-const iconMap: Record<string, React.ElementType> = {
-  'monitor-smartphone': Monitor,
-  'layout-template': Layout,
-  'server-cog': Server,
-  'sparkles': Sparkles,
-  'zap': Zap,
-  'rocket': Rocket,
-}
+import { ArrowRight } from 'lucide-react'
 
 export default function Services() {
   const t = useTranslations('services')
@@ -50,7 +32,6 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => {
-            const Icon = iconMap[service.icon] || Layout
 
             return (
               <motion.div
@@ -61,9 +42,6 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="relative p-8 rounded-2xl bg-card/40 border border-border backdrop-blur-sm hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:border-accent-500/40 hover:-translate-y-1 transition-all duration-300 group">
-                  <div className="w-14 h-14 rounded-xl bg-accent-500/20 border border-accent-500/50 flex items-center justify-center mb-6 group-hover:bg-accent-500/30 transition-all duration-300">
-                    <Icon className="w-7 h-7 text-accent-400" />
-                  </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">
                     {service.title}
                   </h3>

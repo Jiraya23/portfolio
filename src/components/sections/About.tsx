@@ -11,7 +11,7 @@ export default function About() {
 
   const stats = [
     { icon: MapPin, label: t('location'), value: 'Douala, Cameroun' },
-    { icon: Briefcase, label: t('experience'), value: '1+ Année' },
+    { icon: Briefcase, label: t('experience'), value: "3 ans d'expérience" },
     { icon: FolderOpen, label: t('projects'), value: '5+' },
     { icon: Coffee, label: t('coffee'), value: '100%' },
   ]
@@ -86,7 +86,7 @@ export default function About() {
             <div className="mt-10">
               <a
                 href="/cv.pdf"
-                download="Cv_Myli.pdf"
+                download="CV_MBOUGNIA_LONTOUO_YANN_IDRICK.pdf"
                 className={buttonVariants({ size: 'lg', variant: 'outline', className: 'gap-2' })}
               >
                 {t('cta')}

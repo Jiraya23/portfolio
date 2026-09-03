@@ -99,15 +99,17 @@ export default function Projects() {
                         <FaGithub className="w-5 h-5" />
                       </a>
                     )}
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:bg-accent-500 hover:text-primary-foreground hover:border-accent-500 transition-all duration-300"
-                      aria-label="View live"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
+                    {project.id === 'portfolio' && project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:bg-accent-500 hover:text-primary-foreground hover:border-accent-500 transition-all duration-300"
+                        aria-label="View live"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
 
                   {/* Featured Badge */}

@@ -20,7 +20,7 @@ export default function Hero() {
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/Jiraya23', label: 'GitHub' },
     { icon: FaLinkedinIn, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:mbougniayann@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:Mbougniayann@gmail.com', label: 'Email' }
   ]
 
   // JSON-LD Person Schema for SEO
@@ -28,16 +28,23 @@ export default function Hero() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Myli',
-    jobTitle: 'Développeur Fullstack',
+    jobTitle: 'Ingénieur des Travaux en Génie Logiciel / Développeur Fullstack',
     url: 'https://myli-portfolio.com',
     sameAs: [
       'https://github.com/Jiraya23',
       'https://linkedin.com'
-    ]
+    ],
+    email: 'Mbougniayann@gmail.com',
+    telephone: '+237651877541',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Douala',
+      addressCountry: 'CM'
+    }
   }
 
   const trustSignals = [
-    { label: tAbout('experience'), value: '1+' },
+    { label: tAbout('experience'), value: '3' },
     { label: tAbout('projects'), value: '5+' },
   /*   { label: tNav('testimonials'), value: '3+' } */
   ]
