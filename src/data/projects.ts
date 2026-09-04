@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: "eduplatform",
     title: "EduPlatform",
     description:
-      "A complete educational platform including a PHP API, an admin back office, and a web client interface.",
+      "A complete educational platform with a PHP API, an admin dashboard, and a web client for learning management.",
     image: "/globe.svg",
     tags: ["PHP", "JavaScript", "API", "Fullstack"],
     category: "fullstack",
@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: "hiapp",
     title: "HiApp React",
     description:
-      "A clean, modern application built with React and consuming the JSONPlaceholder API for data management.",
+      "A modern React application that consumes the JSONPlaceholder API to manage data cleanly and efficiently.",
     image: "/window.svg",
     tags: ["React", "JavaScript", "API"],
     category: "frontend",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     id: "todo-list-api",
     title: "Todo List API",
     description:
-      "A task management app integrating my first API calls with ReactJS to interact with remote data.",
+      "A productivity app using API calls in ReactJS to interact with remote data and manage daily tasks.",
     image: "/file.svg",
     tags: ["React", "JavaScript", "Fetch API"],
     category: "frontend",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     id: "portfolio",
     title: "My Portfolio",
     description:
-      "The site you are currently browsing! Built with Next.js, Tailwind CSS, and Shadcn/UI components for a premium look and feel.",
+      "The website you are currently visiting, built with Next.js, Tailwind CSS, and Shadcn/UI for a polished digital presence.",
     image: "/vercel.svg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     category: "frontend",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     id: "todo-list",
     title: "Simple Todo List",
     description:
-      "A minimalist task management app to help organize daily life efficiently.",
+      "A minimalist task manager designed to organize daily actions efficiently and simply.",
     image: "/next.svg",
     tags: ["JavaScript", "HTML", "CSS"],
     category: "frontend",

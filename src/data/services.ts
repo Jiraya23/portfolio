@@ -6,41 +6,41 @@ export const services: Service[] = [
     icon: "monitor-smartphone",
     title: "Custom Web Applications",
     description:
-      "Design and development of fast, maintainable applications tailored to real business needs.",
+      "Design and development of high-performance web applications tailored to business needs and scalable growth.",
   },
   {
     id: "frontend",
     icon: "layout-template",
     title: "Premium Frontend",
     description:
-      "Modern, fast, and accessible interfaces with a strong focus on conversion and user experience.",
+      "Modern, responsive, and accessible interfaces designed to improve UX, performance, and conversion.",
   },
   {
     id: "backend",
     icon: "server-cog",
     title: "Backend Architecture",
     description:
-      "Robust APIs, data modeling, authentication, and server-side logic to support product growth.",
+      "Robust APIs, secure authentication, data modeling, and business logic built for reliable product growth.",
   },
   {
     id: "ui-ux",
     icon: "sparkles",
     title: "UI Integration & Design System",
     description:
-      "Pixel-perfect integration and reusable component creation to keep interfaces consistent at scale.",
+      "Precise UI integration and reusable components for consistent, scalable, and polished interfaces.",
   },
   {
     id: "performance",
     icon: "zap",
     title: "Performance & Optimization",
     description:
-      "Improvement of loading speed, Lighthouse scores, and perceived quality across desktop and mobile.",
+      "Optimization of speed, responsiveness, and perceived quality across desktop and mobile experiences.",
   },
   {
     id: "deployment",
     icon: "rocket",
     title: "Deployment & Industrialization",
     description:
-      "Reliable delivery environments with Vercel, CI/CD, and preparation for Docker containerization.",
+      "Secure releases with Vercel, CI/CD, and Docker-ready deployment workflows for production environments.",
   },
 ]
