@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: "eduplatform",
     title: "EduPlatform",
     description:
-      "Plateforme éducative complète comprenant une API PHP, un back-office administrateur et une interface cliente web.",
+      "A complete educational platform including a PHP API, an admin back office, and a web client interface.",
     image: "/globe.svg",
     tags: ["PHP", "JavaScript", "API", "Fullstack"],
     category: "fullstack",
@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: "hiapp",
     title: "HiApp React",
     description:
-      "Application au design épuré construite avec React et consommant l'API JSONPlaceholder pour la gestion des données.",
+      "A clean, modern application built with React and consuming the JSONPlaceholder API for data management.",
     image: "/window.svg",
     tags: ["React", "JavaScript", "API"],
     category: "frontend",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     id: "todo-list-api",
     title: "Todo List API",
     description:
-      "Application de gestion de tâches intégrant mes premiers appels API avec ReactJS pour interagir avec des données distantes.",
+      "A task management app integrating my first API calls with ReactJS to interact with remote data.",
     image: "/file.svg",
     tags: ["React", "JavaScript", "Fetch API"],
     category: "frontend",
@@ -36,9 +36,9 @@ export const projects: Project[] = [
   },
   {
     id: "portfolio",
-    title: "Mon Portfolio",
+    title: "My Portfolio",
     description:
-      "Le site sur lequel vous naviguez ! Développé avec Next.js, Tailwind CSS et des composants Shadcn/UI pour un rendu premium.",
+      "The site you are currently browsing! Built with Next.js, Tailwind CSS, and Shadcn/UI components for a premium look and feel.",
     image: "/vercel.svg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     category: "frontend",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     id: "todo-list",
     title: "Simple Todo List",
     description:
-      "Une application minimaliste de gestion de tâches (Todo List) pour organiser efficacement son quotidien.",
+      "A minimalist task management app to help organize daily life efficiently.",
     image: "/next.svg",
     tags: ["JavaScript", "HTML", "CSS"],
     category: "frontend",

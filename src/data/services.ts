@@ -4,43 +4,43 @@ export const services: Service[] = [
   {
     id: "web-apps",
     icon: "monitor-smartphone",
-    title: "Applications web sur mesure",
+    title: "Custom Web Applications",
     description:
-      "Conception et developpement d'applications performantes, maintenables et adaptees aux besoins metier reels.",
+      "Design and development of fast, maintainable applications tailored to real business needs.",
   },
   {
     id: "frontend",
     icon: "layout-template",
-    title: "Frontend premium",
+    title: "Premium Frontend",
     description:
-      "Interfaces modernes, rapides et accessibles avec une attention particuliere a la conversion et a l'experience utilisateur.",
+      "Modern, fast, and accessible interfaces with a strong focus on conversion and user experience.",
   },
   {
     id: "backend",
     icon: "server-cog",
-    title: "Architecture backend",
+    title: "Backend Architecture",
     description:
-      "APIs robustes, modelisation de donnees, authentification et logique serveur pour soutenir la croissance produit.",
+      "Robust APIs, data modeling, authentication, and server-side logic to support product growth.",
   },
   {
     id: "ui-ux",
     icon: "sparkles",
-    title: "UI integration & design system",
+    title: "UI Integration & Design System",
     description:
-      "Integration pixel-perfect et creation de composants reutilisables pour garder une interface coherente a grande echelle.",
+      "Pixel-perfect integration and reusable component creation to keep interfaces consistent at scale.",
   },
   {
     id: "performance",
     icon: "zap",
-    title: "Performance & optimisation",
+    title: "Performance & Optimization",
     description:
-      "Amelioration du temps de chargement, du score Lighthouse et de la qualite percue sur desktop comme mobile.",
+      "Improvement of loading speed, Lighthouse scores, and perceived quality across desktop and mobile.",
   },
   {
     id: "deployment",
     icon: "rocket",
-    title: "Deploiement & industrialisation",
+    title: "Deployment & Industrialization",
     description:
-      "Mise en place d'environnements de livraison fiables avec Vercel, CI/CD et une preparation a la conteneurisation Docker.",
+      "Reliable delivery environments with Vercel, CI/CD, and preparation for Docker containerization.",
   },
 ]

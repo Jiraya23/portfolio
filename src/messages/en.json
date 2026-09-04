@@ -23,7 +23,7 @@
   "about": {
     "title": "About",
     "subtitle": "Who am I?",
-    "bio1": "Software engineer with 3 years of experience in web development and IT maintenance. I have contributed to Next.js projects, built APIs with Laravel, and participated in Docker production deployments.",
+    "bio1": "Software engineer with 3 years of experience in web development and IT maintenance. I have contributed to Next.js projects, developed APIs with Laravel, and participated in Docker production deployments.",
     "bio2": "I favor simple architecture, testable code, and deployment automation. I work effectively in teams to turn business needs into robust, usable solutions.",
     "location": "Location",
     "experience": "Experience",
@@ -41,7 +41,7 @@
   "experience": {
     "title": "Experience",
     "subtitle": "My journey",
-    "work": "Work",
+    "work": "Professional experience",
     "education": "Education"
   },
   "projects": {

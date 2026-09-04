@@ -8,7 +8,7 @@ export const testimonials: Testimonial[] = [
     company: "NextGen Studio",
     avatar: "/globe.svg",
     content:
-      "Myli a rapidement compris nos enjeux business et a transforme une idee floue en produit clair, elegant et fiable. Le niveau de finition et la fluidite de la collaboration ont fait toute la difference.",
+      "Myli quickly understood our business goals and transformed a vague idea into a clear, elegant, and reliable product. The finish quality and smooth collaboration made all the difference.",
     rating: 5,
   },
   {
@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
     company: "Atlas Labs",
     avatar: "/window.svg",
     content:
-      "Au-dela des competences techniques, j'ai surtout apprecie sa capacite a prioriser, structurer et proposer des solutions concretes. Les livrables ont toujours ete propres et performants.",
+      "Beyond technical skills, I especially appreciated his ability to prioritize, structure, and propose concrete solutions. Deliverables were always clean and high-performing.",
     rating: 5,
   },
   {
@@ -28,7 +28,7 @@ export const testimonials: Testimonial[] = [
     company: "Aurora Commerce",
     avatar: "/file.svg",
     content:
-      "Le rendu final a donne une image beaucoup plus premium a notre marque. Le site est rapide, rassurant et bien pense pour convertir nos visiteurs en leads qualifiés.",
+      "The final result gave our brand a much more premium image. The site is fast, reassuring, and well thought out to convert visitors into qualified leads.",
     rating: 5,
   },
   {
@@ -38,7 +38,7 @@ export const testimonials: Testimonial[] = [
     company: "Pulse Ops",
     avatar: "/next.svg",
     content:
-      "Excellent profil fullstack : solide sur le frontend, fiable sur les choix techniques et tres attentif a la qualite globale du produit. Je retravaillerais avec lui sans hesitation.",
+      "Excellent fullstack profile: strong on the frontend, reliable in technical choices, and very attentive to the overall quality of the product. I would work with him again without hesitation.",
     rating: 5,
   },
 ]
