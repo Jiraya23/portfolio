@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     date: '20 June 2026',
     readTime: '5 min',
     tags: ['Next.js', 'Performance', 'SEO'],
-    image: '/blog/nextjs-homepage.svg',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'modern-internationalization-with-next-intl',
@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     date: '15 May 2026',
     readTime: '6 min',
     tags: ['i18n', 'Next.js', 'SEO'],
-    image: '/blog/next-intl.svg',
+    image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80',
   },
   {
     slug: 'creating-a-reusable-design-system-with-tailwind',
@@ -26,6 +26,6 @@ export const blogPosts: BlogPost[] = [
     date: '8 April 2026',
     readTime: '7 min',
     tags: ['Design System', 'Tailwind', 'UI'],
-    image: '/blog/design-system.svg',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
   },
 ]
