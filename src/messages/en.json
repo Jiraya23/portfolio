@@ -14,17 +14,17 @@
   "hero": {
     "badge": "Available for missions",
     "greeting": "Hello, I am",
-    "title": "Fullstack",
-    "titleAccent": "Developer",
-    "description": "I build modern, performant and accessible web applications. Passionate about clean code and elegant interfaces.",
+    "title": "Software Engineer",
+    "titleAccent": "Fullstack Developer",
+    "description": "Pragmatic fullstack developer: I build reliable, maintainable applications. I work across the front and back end, with a strong focus on readable code, testing, and safe deployments.",
     "cta_primary": "View my projects",
     "cta_secondary": "Download CV"
   },
   "about": {
     "title": "About",
     "subtitle": "Who am I?",
-    "bio1": "Passionate fullstack web developer with several years of experience building modern web applications.",
-    "bio2": "I love turning complex ideas into simple and elegant digital experiences.",
+    "bio1": "Software engineer with 3 years of experience in web development and IT maintenance. I have contributed to Next.js projects, built APIs with Laravel, and participated in Docker production deployments.",
+    "bio2": "I favor simple architecture, testable code, and deployment automation. I work effectively in teams to turn business needs into robust, usable solutions.",
     "location": "Location",
     "experience": "Experience",
     "projects": "Projects",
