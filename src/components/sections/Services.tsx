@@ -1,6 +1,7 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { services } from '@/data/services'
@@ -8,6 +9,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Services() {
   const t = useTranslations('services')
+  const locale = useLocale()
 
   return (
     <section
@@ -29,10 +31,8 @@ export default function Services() {
           />
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => {
-
             return (
               <motion.div
                 key={service.id}
@@ -48,10 +48,13 @@ export default function Services() {
                   <p className="text-muted-foreground mb-6">
                     {service.description}
                   </p>
-                  <div className="flex items-center gap-2 text-accent-400 group-hover:gap-3 transition-all duration-300 cursor-pointer">
-                    <span className="text-sm font-medium">En savoir plus</span>
+                  <Link
+                    href={`/${locale}#contact`}
+                    className="flex items-center gap-2 text-accent-400 group-hover:gap-3 transition-all duration-300"
+                  >
+                    <span className="text-sm font-medium">{t('more')}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </div>
+                  </Link>
                 </div>
               </motion.div>
             )

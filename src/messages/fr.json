@@ -56,7 +56,8 @@
   },
   "services": {
     "title": "Services",
-    "subtitle": "Ce que je propose"
+    "subtitle": "Ce que je propose",
+    "more": "En savoir plus"
   },
   "testimonials": {
     "title": "Témoignages",
